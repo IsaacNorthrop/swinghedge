@@ -1,1 +1,3 @@
 # swinghedge
+dependencies:
+curl
