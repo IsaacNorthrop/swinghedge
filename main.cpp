@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
+    request req = request("https://baseballsavant.mlb.com/probable-pitchers/?date=2024-08-25");
+    req.make_request();
     return 0;
 }

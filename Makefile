@@ -15,7 +15,7 @@ all: $(EXECUTABLE)
 
 # Link source file to create the executable
 $(EXECUTABLE): $(SOURCE)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^ -lcurl
 
 # Clean up build files
 clean:
