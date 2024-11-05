@@ -40,12 +40,19 @@ int main(int argc, const char * argv[])
     // parse html
     myhtml_parse(tree, MyENCODING_UTF_8, html, strlen(html));
 
-    char* attr_key = "matchup-link";
-    myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_key(tree, NULL, NULL, attr_key, strlen(attr_key), NULL);
+    const char* attr_value = "matchup-link";
+    const char* attr_key = "class";
+    myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, 
+    NULL, 0, attr_value, sizeof(attr_value), NULL);
+
+    std::cout << collection->length << std::endl;
 
     for(size_t i = 0; i<collection->length; i++){
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
     }
-    
+
+    myhtml_collection_destroy(collection);
+    myhtml_tree_destroy(tree);
+    myhtml_destroy(myhtml);
     return 0;
 }

@@ -42,5 +42,6 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "C:/Users/isaac/OneDrive/Desktop/code/swinghedge/myhtml"
 }
