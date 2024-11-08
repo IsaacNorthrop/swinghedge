@@ -4,10 +4,12 @@
 
 request::request() {
     address = "";
+    response = "";
 }
 
 request::request(string addr){
     address = addr;
+    response = "";
 }
 
 size_t request::handle_data(void* response, size_t size, size_t num_elements, void* userp){
@@ -34,7 +36,7 @@ void request::make_request(){
         if(res != CURLE_OK) {
             std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
         } else {
-            std::cout << "Response: " << readBuffer << std::endl;
+            request::response = readBuffer;
         }
 
         curl_easy_cleanup(curl);

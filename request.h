@@ -1,7 +1,8 @@
 using namespace std;
 
 class request {
-    string address;
+    std::string address;
+    std::string response;
 
     public:
         request();
