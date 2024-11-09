@@ -3,9 +3,9 @@
 #include <string.h>
 #include <fstream>
 #include <sstream>
-
 #include <myhtml/api.h>
 #include <iostream>
+#include <vector>
 
 mystatus_t serialization_callback(const char *data, size_t len, void *ctx)
 {
@@ -13,22 +13,10 @@ mystatus_t serialization_callback(const char *data, size_t len, void *ctx)
     return MyCORE_STATUS_OK;
 }
 
-int main(int argc, const char *argv[])
+std::vector<std::string> get_links(std::string response)
 {
 
-    std::ifstream file("output.txt");
-    if (!file)
-    {
-        std::cerr << "File could not be opened!" << std::endl;
-        return 1;
-    }
-
-    std::stringstream buffer;
-    buffer << file.rdbuf();
-
-    std::string content = buffer.str();
-
-    const char *html = content.c_str(); // the html is confirmed in a C string
+    const char *html = response.c_str(); // the html is confirmed in a C string
 
     // basic init
     myhtml_t *myhtml = myhtml_create();
@@ -46,10 +34,11 @@ int main(int argc, const char *argv[])
     myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, attr_key, strlen(attr_key),
                                                                         attr_val, strlen(attr_val), NULL);
                                          
-    std::cout << collection->length << std::endl;
-
+    std::vector<std::string> links;
     for (size_t i = 0; i < collection->length; i++)
     {
+        //std::string node = collection->list[i];
+        //links.push_back(node);
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
         printf("\n");
     }
@@ -60,5 +49,5 @@ int main(int argc, const char *argv[])
     myhtml_collection_destroy(collection);
     myhtml_tree_destroy(tree);
     myhtml_destroy(myhtml);
-    return 0;
+    return links;
 }

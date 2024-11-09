@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17
 
 # Source file
-SOURCE = main.cpp request.cpp
+SOURCE = main.cpp request.cpp html_parse.cpp
 
 # Executable name
 EXECUTABLE = swinghedge
@@ -15,7 +15,7 @@ all: $(EXECUTABLE)
 
 # Link source file to create the executable
 $(EXECUTABLE): $(SOURCE)
-	$(CXX) $(CXXFLAGS) -o $@ $^ -lcurl
+	$(CXX) $(CXXFLAGS) -o $@ $^ -lcurl -lmyhtml
 
 # Clean up build files
 clean:
