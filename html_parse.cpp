@@ -7,9 +7,14 @@
 #include <iostream>
 #include <vector>
 
+std::vector<std::string> links;
+
 mystatus_t serialization_callback(const char *data, size_t len, void *ctx)
 {
-    printf("%.*s", (int)len, data);
+    if(data == "<")
+        links.push_back("");
+    std::string(data, len);
+    std::cout << links[links.size()-1] << std::endl;
     return MyCORE_STATUS_OK;
 }
 
@@ -34,11 +39,8 @@ std::vector<std::string> get_links(std::string response)
     myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, attr_key, strlen(attr_key),
                                                                         attr_val, strlen(attr_val), NULL);
                                          
-    std::vector<std::string> links;
     for (size_t i = 0; i < collection->length; i++)
     {
-        //std::string node = collection->list[i];
-        //links.push_back(node);
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
         printf("\n");
     }
