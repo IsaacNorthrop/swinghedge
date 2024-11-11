@@ -11,10 +11,12 @@ std::vector<std::string> links;
 
 mystatus_t serialization_callback(const char *data, size_t len, void *ctx)
 {
-    if(data == "<")
+    const char* start_point = "<";
+    if(strcmp(data, start_point)){
         links.push_back("");
-    std::string(data, len);
-    std::cout << links[links.size()-1] << std::endl;
+    }
+    std::string str(data, len);
+    links[links.size()-1] += str;
     return MyCORE_STATUS_OK;
 }
 
@@ -38,13 +40,17 @@ std::vector<std::string> get_links(std::string response)
     const char *attr_val = "matchup-link";
     myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, attr_key, strlen(attr_key),
                                                                         attr_val, strlen(attr_val), NULL);
-                                         
+    
+    links.push_back("");
     for (size_t i = 0; i < collection->length; i++)
     {
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
+    }
+    printf("%d\n", links.size());
+    for(int i = 0; i<links.size(); i++){
+        std::cout<<links[i];
         printf("\n");
     }
-
     myhtml_tree_node_t *node = myhtml_tree_get_document(tree);
     //print_tree(tree, myhtml_node_child(node), 0);
 
