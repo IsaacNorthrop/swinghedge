@@ -6,15 +6,16 @@
 #include <myhtml/api.h>
 #include <iostream>
 #include <vector>
+#include <regex>
 
 std::vector<std::string> links;
 
 mystatus_t serialization_callback(const char *data, size_t len, void *ctx)
 {
     const char* start_point = "<";
-    if(strcmp(data, start_point)){
+    if(!strcmp(data, start_point))
         links.push_back("");
-    }
+
     std::string str(data, len);
     links[links.size()-1] += str;
     return MyCORE_STATUS_OK;
@@ -41,11 +42,15 @@ std::vector<std::string> get_links(std::string response)
     myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, attr_key, strlen(attr_key),
                                                                         attr_val, strlen(attr_val), NULL);
     
-    links.push_back("");
     for (size_t i = 0; i < collection->length; i++)
     {
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
     }
+
+    for(size_t i = 0; i<links.size(); i++){ // use myhtml to get the player links, might even be able to use a
+         // similar serialization callback
+    }
+
     printf("%d\n", links.size());
     for(int i = 0; i<links.size(); i++){
         std::cout<<links[i];
