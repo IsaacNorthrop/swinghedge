@@ -47,8 +47,9 @@ std::vector<std::string> get_links(std::string response)
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
     }
 
-    for(size_t i = 0; i<links.size(); i++){ // use myhtml to get the player links, might even be able to use a
-         // similar serialization callback
+    for(size_t i = 0; i<links.size(); i++){
+        std::string matchup_link = links[i].substr(links[i].find("href=\"", links[i].size()-1)); // out of range
+        std::cout << matchup_link << std::endl;
     }
 
     printf("%d\n", links.size());
