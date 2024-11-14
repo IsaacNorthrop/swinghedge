@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17 -g
 
 # Source file
-SOURCE = main.cpp request.cpp html_parse.cpp
+SOURCE = main.cpp request.cpp daily_matchups.cpp
 
 # Executable name
 EXECUTABLE = swinghedge

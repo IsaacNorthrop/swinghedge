@@ -42,23 +42,19 @@ std::vector<std::string> get_links(std::string response)
     myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, attr_key, strlen(attr_key),
                                                                         attr_val, strlen(attr_val), NULL);
     
-    for (size_t i = 0; i < collection->length; i++)
+    for (size_t i = 0; i < collection->length; i++) // get element that contains player matchup link
     {
         myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
     }
 
-    for(size_t i = 0; i<links.size(); i++){
-        std::string matchup_link = links[i].substr(links[i].find("href=\"", links[i].size()-1)); // out of range
-        std::cout << matchup_link << std::endl;
-    }
+    std::string delimeter = "href=\"";
 
-    printf("%d\n", links.size());
-    for(int i = 0; i<links.size(); i++){
-        std::cout<<links[i];
-        printf("\n");
+    for(long unsigned int i  = 0; i<links.size(); i++){ // get player matchup link
+        int start = links[i].find(delimeter) + delimeter.length(); // get rid of key
+        int end = links[i].size()-2; // get rid of end of element
+        std::string matchup_link = links[i].substr(start, end-start);
+        links[i] =  matchup_link;
     }
-    myhtml_tree_node_t *node = myhtml_tree_get_document(tree);
-    //print_tree(tree, myhtml_node_child(node), 0);
 
     myhtml_collection_destroy(collection);
     myhtml_tree_destroy(tree);
