@@ -26,8 +26,7 @@ void request::make_request(){
     curl = curl_easy_init();
 
     if(curl) {
-
-        curl_easy_setopt(curl, CURLOPT_URL, "https://baseballsavant.mlb.com/probable-pitchers/?date=2024-08-25");
+        curl_easy_setopt(curl, CURLOPT_URL, request::address.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, request::handle_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
 
