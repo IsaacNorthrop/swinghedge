@@ -10,13 +10,19 @@
 
 std::vector<std::string> links;
 
-mystatus_t serialization_callback(const char *data, size_t len, void *ctx)
+mystatus_t serialization_callback_matchups(const char *data, size_t len, void *ctx)
 {
     const char* start_point = "<";
+    const char* amper = "&amp;";
+    std::string str(data, len);
+
     if(!strcmp(data, start_point))
         links.push_back("");
 
-    std::string str(data, len);
+    if(!strcmp(data, amper))
+        str = "&";
+        
+
     links[links.size()-1] += str;
     return MyCORE_STATUS_OK;
 }
@@ -44,7 +50,7 @@ std::vector<std::string> get_links(std::string response)
     
     for (size_t i = 0; i < collection->length; i++) // get element that contains player matchup link
     {
-        myhtml_serialization_node_callback(collection->list[i], serialization_callback, NULL);
+        myhtml_serialization_node_callback(collection->list[i], serialization_callback_matchups, NULL);
     }
 
     std::string delimeter = "href=\"";

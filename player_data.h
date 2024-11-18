@@ -6,5 +6,5 @@
 #include <iostream>
 #include <myhtml/api.h>
 
-mystatus_t serialization_callback_matchups(const char *data, size_t len, char* buffer);
-std::vector<std::string> get_links(std::string);
+mystatus_t serialization_callback_data(const char *data, size_t len, char* buffer);
+std::vector<std::string> get_data(std::string);

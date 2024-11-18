@@ -3,6 +3,7 @@
 #include <thread>
 #include "request.h"
 #include "daily_matchups.h"
+#include "player_data.h"
 
 using namespace std;
 
@@ -19,10 +20,12 @@ int main() {
     vector<thread> threads;
     
     string temp = "https://baseballsavant.mlb.com" + links[0];
-    cout << temp << endl;
     request matchup = request(temp);
     matchup.make_request();
-    cout << matchup.response << endl;
+    vector<string> data = get_data(matchup.response);
+    //cout << matchup.response << endl;
+
+
 
     // for(int i = 0; i<links.size(); i++){
     //     threads.push_back(thread(thread_func, links[i]));
