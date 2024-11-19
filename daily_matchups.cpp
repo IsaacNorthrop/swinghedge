@@ -62,6 +62,10 @@ std::vector<std::string> get_links(std::string response)
         links[i] =  matchup_link;
     }
 
+    std::sort(links.begin(), links.end());
+    auto last = std::unique(links.begin(), links.end());
+    links.erase(last, links.end());
+
     myhtml_collection_destroy(collection);
     myhtml_tree_destroy(tree);
     myhtml_destroy(myhtml);
