@@ -29,7 +29,7 @@ int main() {
     
     
     for(size_t i = 0; i<links.size(); i++){
-        string temp = "https://baseballsavant.mlb.com" + links[i];
+        string temp = "https://baseballsavant.mlb.com" + links[0];
         request matchup = request(temp);
         matchup.make_request();
         
@@ -37,9 +37,17 @@ int main() {
         for(pair<string, float> player : data){
             cout << player.first + ": ";
             cout << player.second << endl;
-            wobas.push_back(player);
         }
     }
+
+
+    // for(string& link : links){
+    //     threads.push_back(thread(thread_func, link));
+    // }
+
+    // for(thread& thr : threads){
+    //     thr.join();
+    // }
 
     return 0;
 }
