@@ -7,4 +7,4 @@
 #include <myhtml/api.h>
 #include <nlohmann/json.hpp>
 
-std::string get_data(std::string);
+std::vector<std::pair<std::string, float>> get_data(std::string);

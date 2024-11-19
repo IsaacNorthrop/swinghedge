@@ -11,22 +11,21 @@
 
 using json = nlohmann::json;
 
-std::string get_data(std::string response)
+std::vector<std::pair<std::string, float>> get_data(std::string response)
 {
+    std::vector<std::pair<std::string, float>> wobas;
     std::regex dataRegex(R"(var data\s*=\s*(\{.*?\});)");
     std::smatch match;
-    std::string dataJson = "fuck";
+    std::string dataJson = "";
     if (std::regex_search(response, match, dataRegex)) 
         dataJson = match[1].str();
     
-    //std::cout << dataJson << std::endl;
-
     json j = json::parse(dataJson);
     for(json players : j["team"]){
-        std::cout << players["player_name"];
-        std::cout << " : ";
-        std::cout << players["woba"] << std::endl;
+        std::string player_name = players["player_name"];
+        float woba = players["woba"];
+        wobas.push_back({player_name, woba});
     }
 
-    return dataJson;
+    return wobas;
 }
