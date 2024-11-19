@@ -2,7 +2,7 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -Wall -std=c++17 -g
+CXXFLAGS = -Wall -std=c++17 -g -Ijson/include
 
 # Source file
 SOURCE = main.cpp request.cpp daily_matchups.cpp player_data.cpp

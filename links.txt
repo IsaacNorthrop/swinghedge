@@ -1,0 +1,9 @@
+"Olson, Matt" : 0.22
+"Harris II, Michael" : 0.4
+"Arcia, Orlando" : 0.393
+"Riley, Austin" : 0.23
+"Ozuna, Marcell" : 0.172
+"Kelenic, Jarred" : 0.294
+"Laureano, Ramón" : 0.345
+"Murphy, Sean" : 0
+"Albies, Ozzie" : 0

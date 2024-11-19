@@ -22,8 +22,7 @@ int main() {
     string temp = "https://baseballsavant.mlb.com" + links[0];
     request matchup = request(temp);
     matchup.make_request();
-    vector<string> data = get_data(matchup.response);
-    //cout << matchup.response << endl;
+    string data = get_data(matchup.response);
 
 
 

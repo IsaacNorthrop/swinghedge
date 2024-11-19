@@ -5,6 +5,6 @@
 #include <sstream>
 #include <iostream>
 #include <myhtml/api.h>
+#include <nlohmann/json.hpp>
 
-mystatus_t serialization_callback_data(const char *data, size_t len, char* buffer);
-std::vector<std::string> get_data(std::string);
+std::string get_data(std::string);
