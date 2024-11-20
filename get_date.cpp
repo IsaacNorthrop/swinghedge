@@ -17,9 +17,7 @@
  * Author: Isaac Northrop - isaac.northrop88@gmail.com
  */
 
-#include <iostream>
-#include <vector>
-#include <iomanip>
+#include "savant.h"
 
 std::string date_string(std::string input)
 {

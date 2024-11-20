@@ -17,15 +17,7 @@
  * Author: Isaac Northrop - isaac.northrop88@gmail.com
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fstream>
-#include <sstream>
-#include <myhtml/api.h>
-#include <iostream>
-#include <vector>
-#include <regex>
+#include "savant.h"
 
 std::vector<std::string> links;
 

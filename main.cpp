@@ -20,9 +20,7 @@
 #include <iostream>
 #include <vector>
 #include "request.h"
-#include "daily_matchups.h"
-#include "player_data.h"
-#include "get_date.h"
+#include "savant.h"
 
 using namespace std;
 
