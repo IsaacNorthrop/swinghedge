@@ -2,10 +2,12 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -Wall -std=c++17 -g -Ijson/include
+CXXFLAGS = -Wall -std=c++17 -g -Ijson/include -MMD -MP
 
-# Source file
-SOURCE = main.cpp request.cpp daily_matchups.cpp player_data.cpp
+# Source files
+SOURCE = main.cpp request.cpp daily_matchups.cpp player_data.cpp get_date.cpp
+OBJ = $(SOURCE:.cpp=.o)
+DEP = $(OBJ:.o=.d)
 
 # Executable name
 EXECUTABLE = swinghedge
@@ -13,12 +15,19 @@ EXECUTABLE = swinghedge
 # Default target
 all: $(EXECUTABLE)
 
-# Link source file to create the executable
-$(EXECUTABLE): $(SOURCE)
-	$(CXX) $(CXXFLAGS) -o  $@ $^ -lcurl -lmyhtml
+# Link object files to create the executable
+$(EXECUTABLE): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^ -lcurl -lmyhtml
+
+# Generate object files from source files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Include the dependency files (if they exist)
+-include $(DEP)
 
 # Clean up build files
 clean:
-	rm -f $(EXECUTABLE)
+	rm -f $(EXECUTABLE) $(OBJ) $(DEP)
 
 .PHONY: all clean

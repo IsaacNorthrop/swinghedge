@@ -1,3 +1,22 @@
+/*
+ * Copyright (C) 2024 Isaac Northrop
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * 
+ * Author: Isaac Northrop - isaac.northrop88@gmail.com
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +29,7 @@
 
 std::vector<std::string> links;
 
-mystatus_t serialization_callback_matchups(const char *data, size_t len, void *ctx)
+mystatus_t serialization_callback_matchups(const char *data, size_t len, void *ctx) // serialize individual tokens
 {
     const char* start_point = "<";
     const char* amper = "&amp;";
@@ -30,18 +49,15 @@ mystatus_t serialization_callback_matchups(const char *data, size_t len, void *c
 std::vector<std::string> get_links(std::string response)
 {
 
-    const char *html = response.c_str(); // the html is confirmed in a C string
+    const char *html = response.c_str();
 
-    // basic init
     myhtml_t *myhtml = myhtml_create();
     myhtml_init(myhtml, MyHTML_OPTIONS_DEFAULT, 1, 0);
 
-    // first tree init
     myhtml_tree_t *tree = myhtml_tree_create();
     myhtml_tree_init(tree, myhtml);
 
-    // parse html
-    myhtml_parse(tree, MyENCODING_UTF_8, html, strlen(html));
+    myhtml_parse(tree, MyENCODING_UTF_8, html, strlen(html)); // parse html
 
     const char *attr_key = "class";
     const char *attr_val = "matchup-link";
