@@ -12,11 +12,11 @@ C++ Program that predicts batter pitcher matchups in MLB using Statcast data.
 
 Baseball Savant provides a Daily Matchups page, whose data isn't accessible by a standard API.
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 Each matchup is contained in a tag which includes a matchup link. Each of those links contains the batter matchup data between that batter and the pitcher they are facing that day.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 This program sends a request to Baseball Savant, finds the link to each matchup, sends a request to each matchup, gets the Weighted On Base Average (WOBA) of that batter against that pitcher, compiles them all, and then displays the top 10 values.
 
