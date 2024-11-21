@@ -13,16 +13,34 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- * 
+ *
  * Author: Isaac Northrop - isaac.northrop88@gmail.com
  */
 
 #include <iostream>
 #include <vector>
+#include <thread>
+#include <mutex>
+#include <chrono>
 #include "request.h"
 #include "savant.h"
 
 using namespace std;
+auto start = chrono::steady_clock::now();
+vector<pair<string, float>> wobas;
+mutex mtx;
+
+void data_thread(string uri)
+{
+    request matchup = request(uri);
+    matchup.make_request();
+    vector<pair<string, float>> data = get_data(matchup.response); // get batter data from matchup
+    
+    mtx.lock();
+        wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
+    mtx.unlock();
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -35,20 +53,26 @@ int main(int argc, char *argv[])
     std::string input = argv[1];
     std::string link = date_string(input); // get specified day of stats
 
-    vector<pair<string, float>> wobas;
     request daily = request(link);
     daily.make_request();
     vector<string> links = get_links(daily.response); // get all matchups from that day
 
+    vector<thread> threads;
+
     for (size_t i = 0; i < links.size(); i++)
     {
         string temp = "https://baseballsavant.mlb.com" + links[i]; // build request for each matchup
-        request matchup = request(temp);
-        matchup.make_request();
+        threads.push_back(thread(data_thread, temp));
 
-        vector<pair<string, float>> data = get_data(matchup.response); // get batter data from matchup
-        wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
+        // request matchup = request(temp);
+        // matchup.make_request();
+
+        // vector<pair<string, float>> data = get_data(matchup.response); // get batter data from matchup
+        // wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
     }
+
+    for(auto& t : threads)
+        t.join();
 
     std::sort(wobas.begin(), wobas.end(), [](const std::pair<string, float> &a, const std::pair<string, float> &b)
               { return a.second > b.second; }); // sort player wobas by woba
@@ -58,6 +82,10 @@ int main(int argc, char *argv[])
         cout << wobas[i].first + ": ";
         cout << wobas[i].second << endl;
     }
+
+    auto end = chrono::steady_clock::now();
+    auto diff = end - start;
+    printf("SwingHedge executed in %f s\n", chrono::duration<double, milli>(diff).count()/1000);
 
     return 0;
 }
