@@ -64,11 +64,6 @@ int main(int argc, char *argv[])
         string temp = "https://baseballsavant.mlb.com" + links[i]; // build request for each matchup
         threads.push_back(thread(data_thread, temp));
 
-        // request matchup = request(temp);
-        // matchup.make_request();
-
-        // vector<pair<string, float>> data = get_data(matchup.response); // get batter data from matchup
-        // wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
     }
 
     for(auto& t : threads)
