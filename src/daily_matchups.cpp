@@ -17,15 +17,7 @@
  * Author: Isaac Northrop - isaac.northrop88@gmail.com
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fstream>
-#include <sstream>
-#include <myhtml/api.h>
-#include <iostream>
-#include <vector>
-#include <regex>
+#include "savant.h"
 
 std::vector<std::string> links;
 
@@ -63,7 +55,12 @@ std::vector<std::string> get_links(std::string response)
     const char *attr_val = "matchup-link";
     myhtml_collection_t *collection = myhtml_get_nodes_by_attribute_value(tree, NULL, NULL, true, attr_key, strlen(attr_key),
                                                                         attr_val, strlen(attr_val), NULL);
-    
+
+    if(collection->length == 0){
+        std::cerr << "No games on the specified day." << std::endl;
+        exit(0);
+    }
+
     for (size_t i = 0; i < collection->length; i++) // get element that contains player matchup link
     {
         myhtml_serialization_node_callback(collection->list[i], serialization_callback_matchups, NULL);
