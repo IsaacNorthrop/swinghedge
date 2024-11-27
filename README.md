@@ -32,20 +32,28 @@ This program sends a request to Baseball Savant, finds the link to each matchup,
 
 3.  Run the program for your specified date that has MLB games between 2015-2024.
     ```bash
-    ./swinghegde <YYYY-MM-DD>
+    ./bin/swinghegde <YYYY-MM-DD>
 
 ## Versions
 
 ### Current Version
 
+- **v1.1.0** - November 27th, 2024
+    - Performance improvements
+      - Multithreading for each matchup
+      - HTTP 2.0 for faster requests
+      - Program time spent displayed on output
+    - Program structure improvments
+
+### Released
+
 - **v1.0.0** - November 19th, 2024
     - Initial Release: Show top 10 WOBA for a given day
 
-### Released
 ### Future Releases
 
-- **v1.1.0** - Late 2024
-    - Performance Improvements
+- **v1.2.0** - December 2024
+    - Testing framework
 
 ## Contact
 

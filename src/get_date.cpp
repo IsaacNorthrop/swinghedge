@@ -17,15 +17,25 @@
  * Author: Isaac Northrop - isaac.northrop88@gmail.com
  */
 
- /*
- 
-    get_date:
-    Get the daily link in the right format given the date as an argument.
- 
- */
+#include "savant.h"
 
-#include <iostream>
-#include <vector>
-#include <iomanip>
+std::string date_string(std::string input)
+{
+    std::tm date = {};
 
-std::string date_string(std::string input);
+    std::stringstream ss(input);
+    ss >> std::get_time(&date, "%Y-%m-%d");
+
+    if (ss.fail())
+        std::cerr << "Failed to parse date!" << std::endl;
+    else
+    {
+        if (date.tm_year + 1900 > 2025 || date.tm_year + 1900 < 2015)
+            std::cerr << "Statcast data is only available from 2015 and later." << std::endl;
+        if (date.tm_mon < 2 || date.tm_mon > 10)
+            std::cerr << "The MLB season runs from March to November." << std::endl;
+    }
+
+    return "https://baseballsavant.mlb.com/probable-pitchers/?date=" + input;
+
+}

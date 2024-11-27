@@ -48,6 +48,7 @@ void request::make_request(){
         curl_easy_setopt(curl, CURLOPT_URL, request::address.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, request::handle_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+        curl_easy_setopt(curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2);
 
         res = curl_easy_perform(curl);
 
