@@ -1,0 +1,12 @@
+Pagés, Pedro: 2.05
+McCormick, Chas: 1.466
+Hernaiz, Darell: 1.254
+Horwitz, Spencer: 1.254
+Wells, Austin: 0.977
+Butler, Lawrence: 0.882
+Adell, Jo: 0.882
+Wagner, Will: 0.882
+Bichette, Bo: 0.801
+Wood, James: 0.785
+Baddoo, Akil: 0.692
+SwingHedge executed in 1.035349 s
