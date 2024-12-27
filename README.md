@@ -53,7 +53,7 @@ This program sends a request to Baseball Savant, finds the link to each matchup,
 ### Future Releases
 
 - **v1.2.0** - December 2024
-    - Testing framework
+    - Testing framework, using baseball.py
 
 ## Contact
 
