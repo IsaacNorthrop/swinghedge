@@ -72,6 +72,7 @@ int main(int argc, char *argv[])
     std::sort(wobas.begin(), wobas.end(), [](const std::pair<string, float> &a, const std::pair<string, float> &b)
               { return a.second > b.second; }); // sort player wobas by woba
 
+    std::cout << argv[1] << std::endl;
     for (int i = 0; i <= 10; i++)
     {
         cout << wobas[i].first + ": ";
@@ -80,7 +81,7 @@ int main(int argc, char *argv[])
 
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
-    printf("SwingHedge executed in %f s\n", chrono::duration<double, milli>(diff).count()/1000);
+    printf("SwingHedge executed in %f s\n\n", chrono::duration<double, milli>(diff).count()/1000);
 
     return 0;
 }
