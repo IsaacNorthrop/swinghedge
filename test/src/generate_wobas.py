@@ -1,5 +1,6 @@
 import subprocess
 import time
+import statsapi
 
 def generate_wobas():
     start_time = time.time()
@@ -7,7 +8,7 @@ def generate_wobas():
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-04-10"):
+    while(day != "2024-04-02"):
         print("Testing " + day)
         full_command = command + day + output
         subprocess.run(full_command, shell=True)
@@ -37,6 +38,18 @@ def get_next_day(day):
         d_int = int(ymd[2]) + 1
         ymd[2] = f"{d_int:02d}"
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
+
+def get_games():
+    most_recent_game_id = statsapi.last_game(133)
+    
+    # print(statsapi.linescore(most_recent_game_id))
+    player = statsapi.lookup_player('Wiemer, Joey')[0]
+    id = player['id']
+    team = player['currentTeam']['id'] # this needs to be the players team at that time
+    day = '04/01/2024'
+    game = statsapi.schedule(team=team,start_date=day,end_date=day)[0]
+    print(statsapi.boxscore_data(game['game_id']))
+
     
 
 
