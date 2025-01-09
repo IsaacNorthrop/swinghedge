@@ -1,6 +1,6 @@
 import subprocess
 import time
-import statsapi
+import mlbstatsapi
 
 def generate_wobas():
     start_time = time.time()
@@ -40,17 +40,20 @@ def get_next_day(day):
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
 
 def get_games():
-    most_recent_game_id = statsapi.last_game(133)
-    
-    # print(statsapi.linescore(most_recent_game_id))
-    player = statsapi.lookup_player('Wiemer, Joey')[0]
-    id = player['id']
-    team = player['currentTeam']['id'] # this needs to be the players team at that time
-    day = '04/01/2024'
-    game = statsapi.schedule(team=team,start_date=day,end_date=day)[0]
-    print(statsapi.boxscore_data(game['game_id']))
-
-    
+    # look for joey wiemer
+    # he is weird cuz he played for multiple teams so there's some weird stuff u gotta do
+    mlb = mlbstatsapi.Mlb()
+    day = '2024-04-01'
+    player = mlb.get_people_id('Joey Wiemer')[0]
+    stats = ['season', 'seasonAdvanced']
+    groups = ['hitting']
+    params = {'season': 2024}
+    stats = mlb.get_player_stats(player, stats, groups, **params)
+    hitting_season = stats['hitting']['season'][1] # cincinati
+    team = hitting_season.team['id']
+    # Mlb.get_schedule(self, date: str = None, start_date: str = None, end_date: str = None, sport_id: int = 1, team_id: int = None, **params)
+    schedule = mlb.get_schedule('2022-10-13')
+    print(schedule)
 
 
     
