@@ -35,11 +35,10 @@ void data_thread(string uri)
     request matchup = request(uri);
     matchup.make_request();
     vector<pair<string, float>> data = get_data(matchup.response); // get batter data from matchup
-    
-    mtx.lock();
-        wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
-    mtx.unlock();
 
+    mtx.lock();
+    wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
+    mtx.unlock();
 }
 
 int main(int argc, char *argv[])
@@ -63,10 +62,9 @@ int main(int argc, char *argv[])
     {
         string temp = "https://baseballsavant.mlb.com" + links[i]; // build request for each matchup
         threads.push_back(thread(data_thread, temp));
-
     }
 
-    for(auto& t : threads)
+    for (auto &t : threads)
         t.join();
 
     std::sort(wobas.begin(), wobas.end(), [](const std::pair<string, float> &a, const std::pair<string, float> &b)
@@ -81,7 +79,7 @@ int main(int argc, char *argv[])
 
     auto end = chrono::steady_clock::now();
     auto diff = end - start;
-    printf("SwingHedge executed in %f s\n\n", chrono::duration<double, milli>(diff).count()/1000);
+    printf("SwingHedge executed in %f s\n\n", chrono::duration<double, milli>(diff).count() / 1000);
 
     return 0;
 }

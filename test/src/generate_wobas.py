@@ -1,6 +1,6 @@
 import subprocess
 import time
-import mlbstatsapi
+import statsapi
 
 def generate_wobas():
     start_time = time.time()
@@ -39,21 +39,16 @@ def get_next_day(day):
         ymd[2] = f"{d_int:02d}"
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
 
-def get_games():
-    # look for joey wiemer
-    # he is weird cuz he played for multiple teams so there's some weird stuff u gotta do
-    mlb = mlbstatsapi.Mlb()
-    day = '2024-04-01'
-    player = mlb.get_people_id('Joey Wiemer')[0]
-    stats = ['season', 'seasonAdvanced']
-    groups = ['hitting']
-    params = {'season': 2024}
-    stats = mlb.get_player_stats(player, stats, groups, **params)
-    hitting_season = stats['hitting']['season'][1] # cincinati
-    team = hitting_season.team['id']
-    # Mlb.get_schedule(self, date: str = None, start_date: str = None, end_date: str = None, sport_id: int = 1, team_id: int = None, **params)
-    schedule = mlb.get_schedule('2022-10-13')
-    print(schedule)
-
+def get_games(day):
+    schedule = statsapi.schedule(day)
+    person = statsapi.lookup_player('Joey Wiemer')
+    stats = statsapi.get('person_stats', {'personId': person[0]['id'], 'gamePk': 'current'})
+    #print(schedule)
+    print(person)
+    print(person[0]['id'])
+    #print(stats)
+    
+    
+# explore pybaseball
 
     
