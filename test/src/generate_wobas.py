@@ -1,6 +1,8 @@
 import subprocess
 import time
 import statsapi
+from pybaseball import batting_stats_bref
+import re
 
 def generate_wobas():
     start_time = time.time()
@@ -8,14 +10,13 @@ def generate_wobas():
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-04-02"):
+    while(day != "2024-04-03"):
         print("Testing " + day)
         full_command = command + day + output
         subprocess.run(full_command, shell=True)
         day = get_next_day(day)
     end_time = time.time()
     execution_time = end_time - start_time
-
     hours = execution_time // 3600
     minutes = (execution_time % 3600) // 60
     seconds = execution_time % 60
@@ -40,15 +41,28 @@ def get_next_day(day):
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
 
 def get_games(day):
-    schedule = statsapi.schedule(day)
-    person = statsapi.lookup_player('Joey Wiemer')
-    stats = statsapi.get('person_stats', {'personId': person[0]['id'], 'gamePk': 'current'})
-    #print(schedule)
-    print(person)
-    print(person[0]['id'])
-    #print(stats)
+    data = batting_stats_bref(2024)
+    longoria = data[data['Name'] == 'Isiah Kiner-Falefa']
+    print(longoria)
     
     
-# explore pybaseball
+def generate_data():
+    count = 0
+    hits = 0
+    with open('../bin/output.txt', 'r') as file:
+        while True:
+            line = file.readline()
+            if not line:
+                break
+            pattern = r"^\d{4}-\d{2}-\d{2}$"
+            if re.match(pattern, line): # date
+                print("results for %s" % (line))
+            elif ',' in line:
+                playerStat = line.split(': ')
+                playerName = playerStat[0]
+                stat = playerStat[1]
+            # get team from pybaseball
+
+
 
     

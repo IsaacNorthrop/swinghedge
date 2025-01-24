@@ -6,9 +6,23 @@ Trout, Mike: 1.025
 Jung, Josh: 0.977
 Lowe, Josh: 0.962
 Donovan, Brendan: 0.942
-Soto, Juan: 0.941
-Dubón, Mauricio: 0.882
+Soto, Juan: 0.9
 Cabrera, Oswaldo: 0.882
 Duran, Jarren: 0.882
-SwingHedge executed in 24.718191 s
+Fitzgerald, Tyler: 0.882
+SwingHedge executed in 5.263321 s
+
+2024-04-02
+Jung, Josh: 1.406
+Harper, Bryce: 1.366
+Turang, Brice: 1.068
+Alvarez, Francisco: 1.068
+Sosa, Edmundo: 1.063
+Naylor, Bo: 0.977
+Estrada, Thairo: 0.962
+Soler, Jorge: 0.899
+Brennan, Will: 0.85
+Torres, Gleyber: 0.839
+Hoskins, Rhys: 0.801
+SwingHedge executed in 9.043167 s
 
