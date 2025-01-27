@@ -102,7 +102,7 @@ def generate_data():
                 reversedName = playerStat[0]
                 playerName = reverseName(reversedName)
                 playerNumbers = hitting_data[hitting_data['Name'] == playerName]
-                print(playerNumbers)
+                print(playerNumbers) # need to keep track of league for each team object cuz they don't differentiate new york chicago and LA teams
                 teams = playerNumbers['Tm'].str.split(',', expand=True)
                 #boxscore = getBoxscore(playerName, teams)
                 #print(statsapi.schedule(currentDate, currentDate, team=teams[0]))
