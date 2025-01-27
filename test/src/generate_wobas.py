@@ -49,6 +49,8 @@ def get_games(day):
 def generate_data():
     count = 0
     hits = 0
+    year = ''
+    hitting_data = ''
     with open('../bin/output.txt', 'r') as file:
         while True:
             line = file.readline()
@@ -56,12 +58,26 @@ def generate_data():
                 break
             pattern = r"^\d{4}-\d{2}-\d{2}$"
             if re.match(pattern, line): # date
+                if year == '':
+                    dateSplit = line.split('-')
+                    year = dateSplit[0]
+                    hitting_data = batting_stats_bref(int(year))
+                    print(hitting_data)
                 print("results for %s" % (line))
             elif ',' in line:
                 playerStat = line.split(': ')
-                playerName = playerStat[0]
+                reversedName = playerStat[0]
+                playerName = reverseName(reversedName)
+                print(playerName)
                 stat = playerStat[1]
-            # get team from pybaseball
+                playerNumbers = hitting_data[hitting_data['Name'] == playerName]
+                print(playerNumbers)
+            
+def reverseName(name):
+    splitName = name.split(', ')
+    firstName = splitName[1]
+    lastName = splitName[0]
+    return firstName + ' ' + lastName
 
 
 
