@@ -4,6 +4,38 @@ import statsapi
 from pybaseball import batting_stats_bref
 import re
 
+teamCodes = {
+"Arizona": 109,
+    "Atlanta": 144,
+    "Baltimore": 110,
+    "Boston": 111,
+    "Chicago White Sox": 145,
+    "Chicago Cubs": 112,
+    "Cincinnati": 113,
+    "Cleveland": 114,
+    "Colorado": 115,
+    "Detroit": 116,
+    "Houston": 117,
+    "Kansas City": 118,
+    "Los Angeles Angels": 108,
+    "Los Angeles Dodgers": 119,
+    "Miami": 120,
+    "Milwaukee": 158,
+    "Minnesota": 142,
+    "New York Mets": 121,
+    "New York Yankees": 147,
+    "Oakland": 133,
+    "Philadelphia": 143,
+    "Pittsburgh": 134,
+    "San Diego": 135,
+    "San Francisco": 137,
+    "Seattle": 136,
+    "St. Louis": 138,
+    "Tampa Bay": 139,
+    "Texas": 140,
+    "Toronto": 141,
+}
+
 def generate_wobas():
     start_time = time.time()
     subprocess.run("cd ../../bin && > ../test/bin/output.txt", shell=True)
@@ -51,6 +83,7 @@ def generate_data():
     hits = 0
     year = ''
     hitting_data = ''
+    currentDate = ''
     with open('../bin/output.txt', 'r') as file:
         while True:
             line = file.readline()
@@ -62,22 +95,34 @@ def generate_data():
                     dateSplit = line.split('-')
                     year = dateSplit[0]
                     hitting_data = batting_stats_bref(int(year))
-                    print(hitting_data)
                 print("results for %s" % (line))
+                currentDate = line
             elif ',' in line:
                 playerStat = line.split(': ')
                 reversedName = playerStat[0]
                 playerName = reverseName(reversedName)
-                print(playerName)
-                stat = playerStat[1]
                 playerNumbers = hitting_data[hitting_data['Name'] == playerName]
                 print(playerNumbers)
+                teams = playerNumbers['Tm'].str.split(',', expand=True)
+                #boxscore = getBoxscore(playerName, teams)
+                #print(statsapi.schedule(currentDate, currentDate, team=teams[0]))
             
 def reverseName(name):
     splitName = name.split(', ')
     firstName = splitName[1]
     lastName = splitName[0]
     return firstName + ' ' + lastName
+
+def getBoxscore(playerName, teams):
+    for team in teams:
+        print('fuck')
+        
+        
+
+    
+        
+
+
 
 
 
