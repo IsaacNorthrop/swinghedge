@@ -3,9 +3,10 @@ import time
 import statsapi
 from pybaseball import batting_stats_bref
 import re
+import pandas as pd
 
 teamCodes = {
-"Arizona": 109,
+    "Arizona": 109,
     "Atlanta": 144,
     "Baltimore": 110,
     "Boston": 111,
@@ -101,10 +102,12 @@ def generate_data():
                 playerStat = line.split(': ')
                 reversedName = playerStat[0]
                 playerName = reverseName(reversedName)
-                playerNumbers = hitting_data[hitting_data['Name'] == playerName]
-                print(playerNumbers) # need to keep track of league for each team object cuz they don't differentiate new york chicago and LA teams
-                teams = playerNumbers['Tm'].str.split(',', expand=True)
-                #boxscore = getBoxscore(playerName, teams)
+                playerNumbers = hitting_data[hitting_data['Name'] == playerName]                
+                teamsFrame = playerNumbers['Tm'].str.split(',', expand=True)
+                teams = teamsFrame.values.tolist()[0];
+                leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
+                leagues = leaguesFrame.values.tolist()[0];
+                boxscore = getBoxscore(teams, leagues, currentDate)
                 #print(statsapi.schedule(currentDate, currentDate, team=teams[0]))
             
 def reverseName(name):
@@ -113,9 +116,18 @@ def reverseName(name):
     lastName = splitName[0]
     return firstName + ' ' + lastName
 
-def getBoxscore(playerName, teams):
+def getBoxscore(teams, leagues, date):
+    multiLeagueTeams = ['Chicago', 'New York', 'Los Angeles']
+    boxscores = []
     for team in teams:
-        print('fuck')
+        print(team)
+        if(team not in multiLeagueTeams):
+            teamID = teamCodes.get(team)
+            print(teamID)
+            schedule = statsapi.schedule(date=date, team=teamID)
+            print(schedule)
+
+
         
         
 
