@@ -97,7 +97,7 @@ def generate_data():
                     year = dateSplit[0]
                     hitting_data = batting_stats_bref(int(year))
                 print("results for %s" % (line))
-                currentDate = line
+                currentDate = line.strip()
             elif ',' in line:
                 playerStat = line.split(': ')
                 reversedName = playerStat[0]
@@ -108,6 +108,8 @@ def generate_data():
                 leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
                 leagues = leaguesFrame.values.tolist()[0];
                 boxscore = getBoxscore(teams, leagues, currentDate)
+                if(boxscore):
+                    print('dummy')
                 #print(statsapi.schedule(currentDate, currentDate, team=teams[0]))
             
 def reverseName(name):
@@ -118,14 +120,35 @@ def reverseName(name):
 
 def getBoxscore(teams, leagues, date):
     multiLeagueTeams = ['Chicago', 'New York', 'Los Angeles']
-    boxscores = []
+    print(leagues)
     for team in teams:
-        print(team)
         if(team not in multiLeagueTeams):
-            teamID = teamCodes.get(team)
-            print(teamID)
-            schedule = statsapi.schedule(date=date, team=teamID)
-            print(schedule)
+            teamName = teamCodes.get(team)
+            schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
+            if(len(schedule) == 0):
+                return []
+            gameId = schedule[0]['game_id']
+            return statsapi.boxscore_data(gameId)
+        else:
+            teamName = getDoubleTeamName(team, teams, leagues)
+
+def getDoubleTeamName(team, teams, leagues):
+    multiLeagueTeams = ['Chicago', 'New York', 'Los Angeles']
+    num_leagues = len(leagues)
+    if(team == 'Chicago' and 'Maj-NL' in leagues and num_leagues == 1):
+        return teamCodes.get('Chicago Cubs')
+    if(team == 'Chicago' and 'Maj-AL' in leagues and num_leagues == 1):
+        return teamCodes.get('Chicago White Sox')
+    if(team == 'New York' and 'Maj-NL' in leagues and num_leagues == 1):
+        return teamCodes.get('New York Mets')
+    if(team == 'New York' and 'Maj-AL' in leagues and num_leagues == 1):
+        return teamCodes.get('New York Yankees')
+    if(team == 'Los Angeles' and 'Maj-NL' in leagues and num_leagues == 1):
+        return teamCodes.get('Los Angeles Dodgers')
+    if(team == 'Los Angeles' and 'Maj-AL' in leagues and num_leagues == 1):
+        return teamCodes.get('Los Angeles Angels')
+    if(num_leagues == 2 and all(item in teams for multiLeagueTeam in multiLeagueTeams)):
+        # figure out how to handle all leagues in multi league
 
 
         
