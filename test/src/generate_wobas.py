@@ -37,6 +37,38 @@ teamCodes = {
     "Toronto": 141,
 }
 
+teamLeague = {
+    "Arizona": "NL",
+    "Atlanta": "NL",
+    "Baltimore": "AL",
+    "Boston": "AL",
+    "Chicago White Sox": "AL",
+    "Chicago Cubs": "NL",
+    "Cincinnati": "NL",
+    "Cleveland": "AL",
+    "Colorado": "NL",
+    "Detroit": "AL",
+    "Houston": "AL",
+    "Kansas City": "AL",
+    "Los Angeles Angels": "AL",
+    "Los Angeles Dodgers": "NL",
+    "Miami": "NL",
+    "Milwaukee": "NL",
+    "Minnesota": "AL",
+    "New York Mets": "NL",
+    "New York Yankees": "AL",
+    "Oakland": "AL",
+    "Philadelphia": "NL",
+    "Pittsburgh": "NL",
+    "San Diego": "NL",
+    "San Francisco": "NL",
+    "Seattle": "AL",
+    "St. Louis": "NL",
+    "Tampa Bay": "AL",
+    "Texas": "AL",
+    "Toronto": "AL"
+}
+
 def generate_wobas():
     start_time = time.time()
     subprocess.run("cd ../../bin && > ../test/bin/output.txt", shell=True)
@@ -109,8 +141,7 @@ def generate_data():
                 leagues = leaguesFrame.values.tolist()[0];
                 boxscore = getBoxscore(teams, leagues, currentDate)
                 if(boxscore):
-                    print('dummy')
-                #print(statsapi.schedule(currentDate, currentDate, team=teams[0]))
+                    print(boxscore)
             
 def reverseName(name):
     splitName = name.split(', ')
@@ -131,24 +162,54 @@ def getBoxscore(teams, leagues, date):
             return statsapi.boxscore_data(gameId)
         else:
             teamName = getDoubleTeamName(team, teams, leagues)
+            schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
+            if(len(schedule) == 0):
+                return []
+            gameId = schedule[0]['game_id']
+            return statsapi.boxscore_data(gameId)
 
 def getDoubleTeamName(team, teams, leagues):
     multiLeagueTeams = ['Chicago', 'New York', 'Los Angeles']
-    num_leagues = len(leagues)
-    if(team == 'Chicago' and 'Maj-NL' in leagues and num_leagues == 1):
-        return teamCodes.get('Chicago Cubs')
-    if(team == 'Chicago' and 'Maj-AL' in leagues and num_leagues == 1):
-        return teamCodes.get('Chicago White Sox')
-    if(team == 'New York' and 'Maj-NL' in leagues and num_leagues == 1):
-        return teamCodes.get('New York Mets')
-    if(team == 'New York' and 'Maj-AL' in leagues and num_leagues == 1):
-        return teamCodes.get('New York Yankees')
-    if(team == 'Los Angeles' and 'Maj-NL' in leagues and num_leagues == 1):
-        return teamCodes.get('Los Angeles Dodgers')
-    if(team == 'Los Angeles' and 'Maj-AL' in leagues and num_leagues == 1):
-        return teamCodes.get('Los Angeles Angels')
-    if(num_leagues == 2 and all(item in teams for multiLeagueTeam in multiLeagueTeams)):
-        # figure out how to handle all leagues in multi league
+    numLeagues = len(leagues)
+    if(numLeagues == 1):
+        if(team == 'Chicago' and 'Maj-NL' in leagues):
+            return teamCodes.get('Chicago Cubs')
+        if(team == 'Chicago' and 'Maj-AL' in leagues):
+            return teamCodes.get('Chicago White Sox')
+        if(team == 'New York' and 'Maj-NL' in leagues):
+            return teamCodes.get('New York Mets')
+        if(team == 'New York' and 'Maj-AL' in leagues):
+            return teamCodes.get('New York Yankees')
+        if(team == 'Los Angeles' and 'Maj-NL' in leagues):
+            return teamCodes.get('Los Angeles Dodgers')
+        if(team == 'Los Angeles' and 'Maj-AL' in leagues):
+            return teamCodes.get('Los Angeles Angels')
+    if(numLeagues > 2):
+        otherLeagues = []
+        for notMultiLeagueTeam in teams:
+            if(notMultiLeagueTeam == team):
+                continue
+            elif(notMultiLeagueTeam in multiLeagueTeams):
+                return 'invalid'
+            else:
+                otherLeagues.append(teamLeague.get(notMultiLeagueTeam))
+        if('AL' in otherLeagues and 'NL' not in otherLeagues or
+            'NL' in otherLeagues and 'AL' not in otherLeagues):
+            if(team == 'Chicago' and 'Maj-NL' in leagues):
+                return teamCodes.get('Chicago Cubs')
+            if(team == 'Chicago' and 'Maj-AL' in leagues):
+                return teamCodes.get('Chicago White Sox')
+            if(team == 'New York' and 'Maj-NL' in leagues):
+                return teamCodes.get('New York Mets')
+            if(team == 'New York' and 'Maj-AL' in leagues):
+                return teamCodes.get('New York Yankees')
+            if(team == 'Los Angeles' and 'Maj-NL' in leagues):
+                return teamCodes.get('Los Angeles Dodgers')
+            if(team == 'Los Angeles' and 'Maj-AL' in leagues):
+                return teamCodes.get('Los Angeles Angels')    
+        else:
+            return 'invalid'      
+        
 
 
         
