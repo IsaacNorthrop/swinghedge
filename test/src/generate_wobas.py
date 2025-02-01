@@ -69,13 +69,45 @@ teamLeague = {
     "Toronto": "AL"
 }
 
+teamAbbreviations = {
+    "Arizona": "ARI",
+    "Atlanta": "ATL",
+    "Baltimore": "BAL",
+    "Boston": "BOS",
+    "Chicago White Sox": "CWS",
+    "Chicago Cubs": "CHC",
+    "Cincinnati": "CIN",
+    "Cleveland": "CLE",
+    "Colorado": "COL",
+    "Detroit": "DET",
+    "Houston": "HOU",
+    "Kansas City": "KC",
+    "Los Angeles Angels": "LAA",
+    "Los Angeles Dodgers": "LAD",
+    "Miami": "MIA",
+    "Milwaukee": "MIL",
+    "Minnesota": "MIN",
+    "New York Mets": "NYM",
+    "New York Yankees": "NYY",
+    "Oakland": "OAK",
+    "Philadelphia": "PHI",
+    "Pittsburgh": "PIT",
+    "San Diego": "SD",
+    "San Francisco": "SF",
+    "Seattle": "SEA",
+    "St. Louis": "STL",
+    "Tampa Bay": "TB",
+    "Texas": "TEX",
+    "Toronto": "TOR",
+}
+
 def generate_wobas():
     start_time = time.time()
     subprocess.run("cd ../../bin && > ../test/bin/output.txt", shell=True)
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-04-03"):
+    while(day != "2024-08-31"):
         print("Testing " + day)
         full_command = command + day + output
         subprocess.run(full_command, shell=True)
@@ -105,10 +137,10 @@ def get_next_day(day):
         ymd[2] = f"{d_int:02d}"
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
 
-def get_games(day):
-    data = batting_stats_bref(2024)
-    longoria = data[data['Name'] == 'Isiah Kiner-Falefa']
-    print(longoria)
+# def get_games(day):
+#     data = batting_stats_bref(2024)
+#     longoria = data[data['Name'] == 'Isiah Kiner-Falefa']
+#     print(longoria)
     
     
 def generate_data():
@@ -128,7 +160,7 @@ def generate_data():
                     dateSplit = line.split('-')
                     year = dateSplit[0]
                     hitting_data = batting_stats_bref(int(year))
-                print("results for %s" % (line))
+                #print("results for %s" % (line))
                 currentDate = line.strip()
             elif ',' in line:
                 playerStat = line.split(': ')
@@ -139,9 +171,25 @@ def generate_data():
                 teams = teamsFrame.values.tolist()[0];
                 leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
                 leagues = leaguesFrame.values.tolist()[0];
-                boxscore = getBoxscore(teams, leagues, currentDate)
-                if(boxscore):
-                    print(boxscore)
+                boxscores = getBoxscore(teams, leagues, currentDate)
+                playerId = statsapi.lookup_player(playerName)[0]['id']
+                playerIdString = 'ID' + str(playerId)
+                if(boxscores):
+                    for boxscore in boxscores:
+                        currBoxscore = {}
+                        currStats = {}
+                        for team in teams: # this doesn't pick up some boxscores for some reason
+                            if(teamCodes.get(team) == boxscore['away']['team']['id']):
+                                currBoxscore = boxscore['away']['players']
+                            elif(teamCodes.get(team) == boxscore['home']['team']['id']):
+                                currBoxscore = boxscore['home']['players']
+                            if(playerIdString in currBoxscore and 'hits' in currBoxscore[playerIdString]['stats']['batting']): # clean
+                                count+=1
+                                if(currBoxscore[playerIdString]['stats']['batting']['hits'] > 0):
+                                    hits+=1
+    print(f"Success Rate: {hits}/{count} = {hits/count*100}%")
+
+
             
 def reverseName(name):
     splitName = name.split(', ')
@@ -151,22 +199,23 @@ def reverseName(name):
 
 def getBoxscore(teams, leagues, date):
     multiLeagueTeams = ['Chicago', 'New York', 'Los Angeles']
-    print(leagues)
+    boxscores = []
     for team in teams:
         if(team not in multiLeagueTeams):
             teamName = teamCodes.get(team)
             schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
             if(len(schedule) == 0):
-                return []
+                continue
             gameId = schedule[0]['game_id']
-            return statsapi.boxscore_data(gameId)
+            boxscores.append(statsapi.boxscore_data(gameId))
         else:
             teamName = getDoubleTeamName(team, teams, leagues)
             schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
             if(len(schedule) == 0):
-                return []
+                continue
             gameId = schedule[0]['game_id']
-            return statsapi.boxscore_data(gameId)
+            boxscores.append(statsapi.boxscore_data(gameId))
+    return boxscores
 
 def getDoubleTeamName(team, teams, leagues):
     multiLeagueTeams = ['Chicago', 'New York', 'Los Angeles']
