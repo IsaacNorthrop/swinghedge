@@ -1,4 +1,5 @@
 2024-04-01
+Frazier, Adam: 2.004
 Wiemer, Joey: 1.443
 Volpe, Anthony: 1.068
 Contreras, Willson: 1.025
@@ -7,10 +8,9 @@ Jung, Josh: 0.977
 Lowe, Josh: 0.962
 Donovan, Brendan: 0.942
 Soto, Juan: 0.9
-Cabrera, Oswaldo: 0.882
-Duran, Jarren: 0.882
+Dubón, Mauricio: 0.882
 Fitzgerald, Tyler: 0.882
-SwingHedge executed in 5.263321 s
+SwingHedge executed in 15.845396 s
 
 2024-04-02
 Jung, Josh: 1.406
@@ -24,5 +24,817 @@ Soler, Jorge: 0.899
 Brennan, Will: 0.85
 Torres, Gleyber: 0.839
 Hoskins, Rhys: 0.801
-SwingHedge executed in 9.043167 s
+SwingHedge executed in 12.936364 s
+
+2024-04-03
+Trammell, Taylor: 1.177
+Ward, Taylor: 1.068
+Alvarez, Francisco: 1.068
+Sánchez, Gary: 1.025
+Rojas, Miguel: 1.025
+Duran, Jarren: 0.986
+Tucker, Kyle: 0.953
+Alexander, Blaze: 0.913
+Harris II, Michael: 0.884
+Freeman, Tyler: 0.884
+Arraez, Luis: 0.883
+SwingHedge executed in 16.133685 s
+
+2024-04-04
+Velázquez, Nelson: 1.466
+Alvarez, Francisco: 1.068
+Sánchez, Jesús: 0.971
+Frazier, Adam: 0.872
+Torres, Gleyber: 0.839
+Keith, Colt: 0.785
+Martínez, Angel: 0.754
+Abrams, CJ: 0.733
+Witt Jr., Bobby: 0.712
+McKinstry, Zach: 0.696
+Nimmo, Brandon: 0.689
+SwingHedge executed in 14.433123 s
+
+2024-04-05
+Profar, Jurickson: 1.374
+Cruz, Oneil: 1.271
+Hays, Austin: 1.242
+O'Hearn, Ryan: 1.213
+Allen, Nick: 1.132
+Crews, Dylan: 1.118
+Clement, Ernie: 1.068
+Suárez, Eugenio: 1.068
+Estrada, Thairo: 1.002
+Gonzalez, Romy: 1.002
+Toglia, Michael: 1.002
+SwingHedge executed in 15.386527 s
+
+2024-04-06
+Soto, Juan: 2.05
+Bart, Joey: 1.652
+d'Arnaud, Travis: 1.478
+Vázquez, Christian: 1.232
+Toglia, Michael: 1.025
+Fry, David: 1.025
+Edman, Tommy: 1.025
+Smith, Will: 1.025
+Muncy, Max: 0.998
+Fairchild, Stuart: 0.985
+Walker, Jordan: 0.972
+SwingHedge executed in 12.909665 s
+
+2024-04-07
+Gonzalez, Romy: 2.004
+Edman, Tommy: 1.366
+Contreras, William: 1.271
+Gelof, Zack: 1.213
+Jung, Josh: 1.207
+Fletcher, Dominic: 1.068
+Lowe, Josh: 1.063
+Hamilton, David: 1.025
+Gorman, Nolan: 1.025
+Stanton, Giancarlo: 1.025
+Lindor, Francisco: 0.976
+SwingHedge executed in 14.219888 s
+
+2024-04-08
+Valdez, Enmanuel: 1.785
+Benson, Will: 1.652
+Perkins, Blake: 1.443
+Profar, Jurickson: 1.431
+Cronenworth, Jake: 1.145
+Sosa, Edmundo: 1.025
+Conforto, Michael: 1.002
+Volpe, Anthony: 0.949
+Lee, Jung Hoo: 0.942
+Vientos, Mark: 0.939
+McCarthy, Jake: 0.883
+SwingHedge executed in 13.314273 s
+
+2024-04-09
+Outman, James: 1.466
+Martin, Austin: 1.254
+Machado, Manny: 1.068
+Baker, Luken: 1.002
+Smith, Will: 0.977
+Fry, David: 0.915
+Canzone, Dominic: 0.913
+Azocar, José: 0.884
+Yastrzemski, Mike: 0.882
+Call, Alex: 0.882
+Suzuki, Seiya: 0.882
+SwingHedge executed in 10.728023 s
+
+2024-04-10
+Julien, Edouard: 1.466
+Lux, Gavin: 1.443
+India, Jonathan: 1.369
+Sogard, Nick: 1.254
+Toglia, Michael: 1.025
+Fitzgerald, Tyler: 0.992
+Casas, Triston: 0.987
+Pasquantino, Vinnie: 0.972
+Yepez, Juan: 0.882
+Velázquez, Nelson: 0.882
+Schanuel, Nolan: 0.882
+SwingHedge executed in 8.273971 s
+
+2024-04-11
+Soderstrom, Tyler: 2.004
+Cowser, Colton: 1.652
+Velázquez, Nelson: 1.63
+Frazier, Adam: 1.217
+Renfroe, Hunter: 1.002
+Candelario, Jeimer: 0.981
+Bohm, Alec: 0.977
+Fermin, Freddy: 0.882
+Garcia, Maikel: 0.834
+Wilson, Jacob: 0.785
+Rooker, Brent: 0.72
+SwingHedge executed in 10.317450 s
+
+2024-04-12
+De La Cruz, Elly: 1.466
+Cowser, Colton: 1.101
+Hoskins, Rhys: 1.068
+Santander, Anthony: 1.025
+Stephenson, Tyler: 1.025
+Manzardo, Kyle: 0.977
+Steer, Spencer: 0.972
+Massey, Michael: 0.962
+Yelich, Christian: 0.882
+Goodman, Hunter: 0.879
+Ruiz, Keibert: 0.849
+SwingHedge executed in 9.693088 s
+
+2024-04-13
+Doyle, Brenton: 2.05
+Schmitt, Casey: 2.004
+Westburg, Jordan: 1.466
+Ward, Taylor: 1.466
+Malloy, Justyn-Henry: 1.466
+Jung, Josh: 1.207
+Mountcastle, Ryan: 1.025
+Rutschman, Adley: 1.025
+Siri, Jose: 1.002
+Gonzalez, Romy: 1.002
+Manzardo, Kyle: 0.977
+SwingHedge executed in 12.100423 s
+
+2024-04-14
+Sosa, Edmundo: 1.203
+Mullins, Cedric: 1.025
+Torres, Gleyber: 1.025
+Larnach, Trevor: 0.977
+Busch, Michael: 0.977
+Young, Jacob: 0.952
+Contreras, William: 0.913
+Lee, Jung Hoo: 0.882
+Wade Jr., LaMonte: 0.882
+Nootbaar, Lars: 0.854
+Butler, Lawrence: 0.845
+SwingHedge executed in 45.324274 s
+
+2024-04-15
+Busch, Michael: 1.369
+Arias, Gabriel: 1.236
+Abrams, CJ: 1.101
+Gonzales, Nick: 1.068
+Palacios, Joshua: 1.025
+Pasquantino, Vinnie: 1.025
+Profar, Jurickson: 1.006
+Westburg, Jordan: 1.006
+Andujar, Miguel: 0.985
+Chourio, Jackson: 0.977
+O'Hearn, Ryan: 0.953
+SwingHedge executed in 7.820009 s
+
+2024-04-16
+Amaya, Miguel: 1.422
+Arias, Gabriel: 1.254
+Stubbs, Garrett: 1.244
+Chapman, Matt: 1.101
+Happ, Ian: 1.068
+Arcia, Orlando: 1.025
+Henderson, Gunnar: 0.953
+Carpenter, Kerry: 0.948
+Vierling, Matt: 0.884
+Thomas, Lane: 0.883
+Rosario, Eguy: 0.882
+SwingHedge executed in 12.711248 s
+
+2024-04-17
+Bruján, Vidal: 1.244
+Clement, Ernie: 1.068
+Marte, Noelvi: 1.063
+Ozuna, Marcell: 1.025
+Keirsey Jr., DaShawn: 1.025
+Lux, Gavin: 1.025
+Marte, Ketel: 1.021
+Refsnyder, Rob: 1.006
+Acuña Jr., Ronald: 0.977
+Meyers, Jake: 0.97
+Raleigh, Cal: 0.913
+SwingHedge executed in 13.599143 s
+
+2024-04-18
+Heim, Jonah: 1.084
+Torres, Gleyber: 1.006
+Langford, Wyatt: 0.972
+Greene, Riley: 0.948
+Adames, Willy: 0.883
+Lee, Jung Hoo: 0.882
+Wong, Connor: 0.823
+McCray, Grant: 0.795
+Semien, Marcus: 0.763
+Abreu, Wilyer: 0.712
+Amaya, Miguel: 0.712
+SwingHedge executed in 7.060897 s
+
+2024-04-19
+Pagés, Pedro: 2.05
+Bohm, Alec: 2.05
+Wiemer, Joey: 1.443
+Tatis Jr., Fernando: 1.369
+Ramos, Heliot: 1.369
+Casas, Triston: 1.369
+Alexander, Blaze: 1.254
+Edman, Tommy: 1.238
+Raleigh, Cal: 1.207
+Turner, Trea: 1.068
+Adams, Riley: 1.047
+SwingHedge executed in 13.363723 s
+
+2024-04-20
+Varsho, Daulton: 1.652
+d'Arnaud, Travis: 1.256
+Raleigh, Cal: 1.207
+Reynolds, Bryan: 1.109
+Norby, Connor: 1.101
+Martin, Austin: 1.068
+Stephenson, Tyler: 1.025
+Torres, Gleyber: 1.025
+Sánchez, Gary: 1.025
+Marsh, Brandon: 1.025
+Canario, Alexander: 1.025
+SwingHedge executed in 14.580121 s
+
+2024-04-21
+Raley, Luke: 1.294
+Ibáñez, Andy: 1.244
+Doyle, Brenton: 1.236
+Yastrzemski, Mike: 1.025
+Clement, Ernie: 1.025
+Reynolds, Bryan: 0.985
+Ohtani, Shohei: 0.977
+Chisholm Jr., Jazz: 0.962
+Goldschmidt, Paul: 0.908
+Carpenter, Kerry: 0.898
+Thomas, Alek: 0.884
+SwingHedge executed in 9.488080 s
+
+2024-04-22
+Perdomo, Geraldo: 2.004
+Newman, Kevin: 1.254
+Rendon, Anthony: 1.242
+Neto, Zach: 1.068
+Gonzales, Nick: 1.025
+De La Cruz, Bryan: 0.979
+Larnach, Trevor: 0.972
+Hoskins, Rhys: 0.913
+Goldschmidt, Paul: 0.893
+Thomas, Alek: 0.883
+Cruz, Oneil: 0.848
+SwingHedge executed in 9.993389 s
+
+2024-04-23
+Bryant, Kris: 2.004
+Suzuki, Seiya: 1.568
+Adell, Jo: 1.068
+Gorman, Nolan: 1.068
+Langeliers, Shea: 1.025
+Butler, Lawrence: 1.025
+Meyers, Jake: 1.025
+Refsnyder, Rob: 1.006
+Wiemer, Joey: 0.97
+Higashioka, Kyle: 0.913
+Contreras, Willson: 0.913
+SwingHedge executed in 13.529588 s
+
+2024-04-24
+Bart, Joey: 2.05
+Judge, Aaron: 1.466
+Wisely, Brett: 1.466
+Fry, David: 1.254
+Carter, Evan: 1.187
+Swanson, Dansby: 1.025
+Lowe, Brandon: 1.002
+O'Neill, Tyler: 0.992
+Olson, Matt: 0.987
+Henderson, Gunnar: 0.981
+Schneider, Davis: 0.97
+SwingHedge executed in 13.999029 s
+
+2024-04-25
+Conforto, Michael: 1.331
+Buxton, Byron: 1.254
+Smith, Josh: 1.137
+Brennan, Will: 1.025
+Hoerner, Nico: 1.006
+Kepler, Max: 0.99
+Arias, Gabriel: 0.987
+Pratto, Nick: 0.985
+Bart, Joey: 0.913
+Ramírez, José: 0.905
+Kennedy, Buddy: 0.884
+SwingHedge executed in 9.036577 s
+
+2024-04-26
+Castillo, Luis: 1.242
+Edwards, Xavier: 1.063
+d'Arnaud, Travis: 1.025
+Ortiz, Joey: 1.025
+Taveras, Leody: 1.006
+Domínguez, Jasson: 1.002
+Contreras, Willson: 0.998
+Carter, Evan: 0.977
+Crow-Armstrong, Pete: 0.882
+García Jr., Luis: 0.882
+Young, Jacob: 0.882
+SwingHedge executed in 13.652457 s
+
+2024-04-27
+Adell, Jo: 1.466
+Vargas, Miguel: 1.369
+Crow-Armstrong, Pete: 1.254
+Kelly, Carson: 1.254
+Palacios, Richie: 1.207
+Gorman, Nolan: 1.094
+Meyers, Jake: 1.073
+Andujar, Miguel: 1.068
+McMahon, Ryan: 1.025
+Bohm, Alec: 0.977
+Horwitz, Spencer: 0.977
+SwingHedge executed in 8.668857 s
+
+2024-04-28
+Campusano, Luis: 2.05
+Schneider, Davis: 1.254
+Burger, Jake: 1.23
+Thaiss, Matt: 1.068
+Darvish, Yu: 1.06
+Judge, Aaron: 1.025
+Langford, Wyatt: 1.025
+García, Adolis: 1.025
+Brown, Seth: 1.025
+Kirk, Alejandro: 0.977
+Mountcastle, Ryan: 0.954
+SwingHedge executed in 9.708715 s
+
+2024-04-29
+Pérez, Wenceel: 1.466
+Alvarez, Francisco: 1.101
+Kepler, Max: 0.967
+Yelich, Christian: 0.92
+Brown, Seth: 0.884
+Sánchez, Gary: 0.884
+Siani, Michael: 0.882
+Wood, James: 0.882
+Meadows, Parker: 0.801
+Fletcher, Dominic: 0.785
+Isbel, Kyle: 0.754
+SwingHedge executed in 13.966838 s
+
+2024-04-30
+Siri, Jose: 1.652
+Pérez, Wenceel: 1.466
+Black, Tyler: 1.254
+Buxton, Byron: 1.254
+Abreu, Wilyer: 1.178
+Casas, Triston: 1.083
+McMahon, Ryan: 1.068
+Kwan, Steven: 1.054
+Neto, Zach: 1.025
+Pratto, Nick: 0.985
+Donovan, Brendan: 0.977
+SwingHedge executed in 3.771918 s
+
+2024-05-01
+Lewis, Royce: 1.369
+Nimmo, Brandon: 1.207
+Riley, Austin: 1.054
+Alvarez, Francisco: 1.025
+Pages, Andy: 1.025
+Buxton, Byron: 0.964
+Toglia, Michael: 0.882
+Siani, Michael: 0.882
+Stallings, Jacob: 0.882
+Lowe, Nathaniel: 0.876
+Palacios, Richie: 0.854
+SwingHedge executed in 3.851961 s
+
+2024-05-02
+Yastrzemski, Mike: 2.05
+Bruján, Vidal: 1.254
+Matos, Luis: 1.244
+Mateo, Jorge: 1.133
+Singleton, Jon: 0.977
+Peña, Jeremy: 0.913
+Mountcastle, Ryan: 0.763
+Stallings, Jacob: 0.724
+Chapman, Matt: 0.708
+Busch, Michael: 0.706
+Boyd, Matthew: 0.692
+SwingHedge executed in 1.570249 s
+
+2024-05-03
+Goodman, Hunter: 1.466
+Chourio, Jackson: 1.254
+Kirk, Alejandro: 1.123
+India, Jonathan: 1.074
+Caballero, José: 1.068
+Baty, Brett: 1.025
+Higashioka, Kyle: 1.003
+De La Cruz, Bryan: 0.977
+Moore, Dylan: 0.91
+Turang, Brice: 0.882
+Stallings, Jacob: 0.882
+SwingHedge executed in 7.781704 s
+
+2024-05-04
+Goodman, Hunter: 1.652
+Bleday, JJ: 1.369
+Pages, Andy: 1.025
+Rooker, Brent: 1.025
+Murphy, Sean: 1.002
+Casas, Triston: 0.996
+Ohtani, Shohei: 0.977
+Barnes, Austin: 0.97
+Contreras, Willson: 0.89
+Sosa, Edmundo: 0.882
+Castro, Willi: 0.882
+SwingHedge executed in 3.912970 s
+
+2024-05-05
+Lindor, Francisco: 2.05
+Bouchard, Sean: 1.369
+Cabrera, Oswaldo: 1.068
+Tena, José: 1.063
+Lowe, Brandon: 1.061
+Walls, Taylor: 1.036
+Bart, Joey: 1.036
+Westburg, Jordan: 1.025
+Rafaela, Ceddanne: 1.025
+Cruz, Oneil: 0.977
+Ozuna, Marcell: 0.977
+SwingHedge executed in 7.809093 s
+
+2024-05-06
+Solano, Donovan: 2.05
+Walls, Taylor: 1.443
+Santana, Dennis: 1.247
+Outman, James: 1.025
+Andujar, Miguel: 1.012
+Ohtani, Shohei: 0.977
+Castellanos, Nick: 0.942
+DeLuca, Jonny: 0.882
+Reynolds, Bryan: 0.837
+Jansen, Danny: 0.721
+Amaya, Miguel: 0.72
+SwingHedge executed in 1.691454 s
+
+2024-05-07
+Perdomo, Geraldo: 1.59
+Ibáñez, Andy: 1.245
+Arias, Gabriel: 1.244
+Clemens, Kody: 1.213
+Martínez, Angel: 1.025
+Jeffers, Ryan: 1.025
+Contreras, Willson: 0.998
+Naylor, Bo: 0.962
+Duran, Jarren: 0.948
+Yoshida, Masataka: 0.883
+Crow-Armstrong, Pete: 0.882
+SwingHedge executed in 1.844462 s
+
+2024-05-08
+Toglia, Michael: 2.05
+Vargas, Miguel: 1.369
+Luciano, Marco: 1.254
+Bailey, Patrick: 1.244
+Garver, Mitch: 1.207
+Judge, Aaron: 1.101
+Cowser, Colton: 1.068
+Schneemann, Daniel: 1.025
+Henderson, Gunnar: 0.977
+Soderstrom, Tyler: 0.905
+Duran, Ezequiel: 0.882
+SwingHedge executed in 7.876194 s
+
+2024-05-09
+Blanco, Dairon: 1.466
+Tauchman, Mike: 1.07
+Volpe, Anthony: 0.977
+Cabrera, Oswaldo: 0.882
+Woodruff, Brandon: 0.87
+Pasquantino, Vinnie: 0.823
+Doyle, Brenton: 0.733
+Nootbaar, Lars: 0.733
+Naylor, Bo: 0.718
+Garcia, Maikel: 0.712
+Ramos, Bryan: 0.712
+SwingHedge executed in 3.604580 s
+
+2024-05-10
+Adell, Jo: 1.025
+Renfroe, Hunter: 1.003
+Casas, Triston: 1.002
+Swanson, Dansby: 0.996
+Melendez, MJ: 0.978
+Vientos, Mark: 0.939
+Pederson, Joc: 0.884
+Solano, Donovan: 0.883
+Lewis, Royce: 0.883
+Herrera, Iván: 0.801
+Soto, Juan: 0.8
+SwingHedge executed in 3.667345 s
+
+2024-05-11
+Pagés, Pedro: 2.05
+Mountcastle, Ryan: 1.366
+Schneider, Davis: 1.101
+Westburg, Jordan: 1.068
+Butler, Lawrence: 1.066
+Arcia, Orlando: 1.025
+Bichette, Bo: 1.025
+De La Cruz, Elly: 1.025
+Goodman, Hunter: 1.025
+Chapman, Matt: 0.977
+Henderson, Gunnar: 0.977
+SwingHedge executed in 3.957578 s
+
+2024-05-12
+Stephenson, Tyler: 2.05
+Rodríguez, Julio: 1.025
+Murphy, Tom: 1.015
+Kelly, Carson: 1.003
+Soto, Juan: 0.985
+Westburg, Jordan: 0.972
+Fry, David: 0.915
+Arozarena, Randy: 0.883
+Goldschmidt, Paul: 0.791
+Thaiss, Matt: 0.789
+Perez, Salvador: 0.712
+SwingHedge executed in 3.880961 s
+
+2024-05-13
+Burger, Jake: 1.35
+Winn, Masyn: 1.254
+Paris, Kyren: 1.254
+Tauchman, Mike: 1.083
+Schanuel, Nolan: 1.068
+Fletcher, Dominic: 1.063
+Matos, Luis: 1.025
+Carlson, Dylan: 0.985
+Caminero, Junior: 0.977
+Davis, Henry: 0.962
+Kelly, Carson: 0.884
+SwingHedge executed in 32.898611 s
+
+2024-05-14
+Schuemann, Max: 1.271
+Naylor, Bo: 1.254
+Tauchman, Mike: 1.083
+Fletcher, Dominic: 1.063
+Rafaela, Ceddanne: 1.025
+Holliday, Jackson: 1.025
+Gonzales, Nick: 1.025
+Young, Jared: 1.002
+O'Hoppe, Logan: 0.913
+Vaughn, Andrew: 0.913
+Lipscomb, Trey: 0.882
+SwingHedge executed in 3.914135 s
+
+2024-05-15
+Bryant, Kris: 2.004
+Noel, Jhonkensy: 1.466
+Murphy, Tom: 1.247
+Rosario, Amed: 1.242
+Ortiz, Joey: 1.207
+Contreras, Willson: 1.061
+Acuña, Luisangel: 1.025
+Garver, Mitch: 1.025
+Harper, Bryce: 0.973
+Adams, Riley: 0.972
+LeMahieu, DJ: 0.962
+SwingHedge executed in 3.728769 s
+
+2024-05-16
+Swanson, Dansby: 0.996
+De La Cruz, Elly: 0.942
+Vientos, Mark: 0.724
+Stephenson, Tyler: 0.712
+Hayes, Ke'Bryan: 0.703
+Buxton, Byron: 0.689
+Benson, Will: 0.683
+Hernández, Teoscar: 0.683
+Betts, Mookie: 0.672
+Miranda, Jose: 0.631
+Rortvedt, Ben: 0.627
+SwingHedge executed in 3.608727 s
+
+2024-05-17
+Beck, Jordan: 2.05
+Conforto, Michael: 1.98
+Fermin, Freddy: 1.66
+Ortiz, Joey: 1.652
+Manzardo, Kyle: 1.466
+Kavadas, Niko: 1.466
+O'Neill, Tyler: 1.466
+McMahon, Ryan: 1.068
+Burleson, Alec: 1.025
+Gorman, Nolan: 1.025
+Meyers, Jake: 1.025
+SwingHedge executed in 3.766468 s
+
+2024-05-18
+Meyers, Jake: 1.466
+Matos, Luis: 1.225
+Fletcher, Dominic: 1.068
+Morel, Christopher: 1.036
+Gorman, Nolan: 1.03
+Barger, Addison: 1.025
+Kelly, Carson: 1.003
+Stanton, Giancarlo: 0.887
+Lowe, Josh: 0.884
+Fitzgerald, Tyler: 0.882
+Judge, Aaron: 0.858
+SwingHedge executed in 3.728662 s
+
+2024-05-19
+Toglia, Michael: 2.05
+Sánchez, Gary: 1.624
+Witt Jr., Bobby: 1.422
+Suwinski, Jack: 1.3
+India, Jonathan: 1.261
+Fortes, Nick: 1.256
+Tucker, Kyle: 1.194
+Crews, Dylan: 1.118
+Nootbaar, Lars: 1.025
+Myers, Dane: 1.025
+Seager, Corey: 0.913
+SwingHedge executed in 16.115439 s
+
+2024-05-20
+Hoskins, Rhys: 2.007
+Siani, Michael: 1.466
+Yepez, Juan: 1.036
+Siri, Jose: 1.025
+Singleton, Jon: 1.002
+Madrigal, Nick: 0.951
+Mead, Curtis: 0.883
+Fermin, Freddy: 0.882
+Caratini, Victor: 0.859
+Slater, Austin: 0.825
+Fry, David: 0.785
+SwingHedge executed in 3.678572 s
+
+2024-05-21
+Madrigal, Nick: 2.004
+Noda, Ryan: 1.315
+Soler, Jorge: 1.05
+Vientos, Mark: 1.025
+Gorman, Nolan: 0.972
+Contreras, Willson: 0.92
+Fry, David: 0.883
+Kwan, Steven: 0.883
+Williams, Luke: 0.883
+Young, Jacob: 0.882
+Garcia, Maikel: 0.847
+SwingHedge executed in 7.709196 s
+
+2024-05-22
+Paris, Kyren: 1.369
+Taveras, Leody: 1.025
+Story, Trevor: 1.025
+Realmuto, J.T.: 1.025
+McNeil, Jeff: 1.025
+Springer, George: 1.025
+Gorman, Nolan: 0.972
+Santander, Anthony: 0.972
+Contreras, Willson: 0.92
+Soto, Juan: 0.913
+Gorman, Nolan: 0.883
+SwingHedge executed in 3.893036 s
+
+2024-05-23
+McCutchen, Andrew: 2.05
+Cole, Gerrit: 1.98
+Mateo, Jorge: 1.369
+Gonzales, Nick: 1.236
+Sosa, Edmundo: 1.068
+Realmuto, J.T.: 0.913
+Higashioka, Kyle: 0.883
+Tovar, Ezequiel: 0.836
+Polanco, Jorge: 0.811
+Robles, Victor: 0.72
+Castellanos, Nick: 0.706
+SwingHedge executed in 1.576344 s
+
+2024-05-24
+Marsh, Brandon: 2.004
+Rengifo, Luis: 1.395
+Keith, Colt: 1.385
+Crow-Armstrong, Pete: 1.338
+Sosa, Edmundo: 1.101
+Guerrero Jr., Vladimir: 1.019
+Crawford, J.P.: 0.977
+Isbel, Kyle: 0.95
+Vientos, Mark: 0.913
+Soler, Jorge: 0.909
+Tinoco, Jesus: 0.87
+SwingHedge executed in 3.730764 s
+
+2024-05-25
+Crow-Armstrong, Pete: 1.338
+Castillo, Luis: 1.063
+Duran, Ezequiel: 1.025
+Velázquez, Nelson: 1.025
+Fletcher, Dominic: 1.025
+Carpenter, Kerry: 0.977
+Rodríguez, Julio: 0.939
+Frelick, Sal: 0.882
+Caratini, Victor: 0.882
+Suárez, Eugenio: 0.882
+Sosa, Lenyn: 0.882
+SwingHedge executed in 3.798709 s
+
+2024-05-26
+Santander, Anthony: 2.007
+Torkelson, Spencer: 1.652
+Wisely, Brett: 1.466
+Schuemann, Max: 1.271
+Abreu, Wilyer: 1.236
+Winn, Masyn: 1.044
+O'Neill, Tyler: 1.025
+Riley, Austin: 1.025
+Guerrero Jr., Vladimir: 1.006
+Albies, Ozzie: 1.001
+Polanco, Jorge: 0.93
+SwingHedge executed in 7.881836 s
+
+2024-05-27
+Sogard, Nick: 1.254
+Holliday, Jackson: 1.118
+Freeman, Tyler: 1.068
+Profar, Jurickson: 1.025
+Springer, George: 1.025
+Casas, Triston: 0.987
+Wallner, Matt: 0.987
+Tena, José: 0.977
+Santander, Anthony: 0.972
+Westburg, Jordan: 0.972
+Muncy, Max: 0.892
+SwingHedge executed in 3.753809 s
+
+2024-05-28
+Ohtani, Shohei: 1.143
+Vierling, Matt: 0.977
+Melendez, MJ: 0.972
+Call, Alex: 0.962
+Tucker, Kyle: 0.942
+Bryant, Kris: 0.913
+Muncy, Max: 0.892
+Newman, Kevin: 0.884
+Kepler, Max: 0.882
+Suter, Brent: 0.88
+Schneider, Davis: 0.836
+SwingHedge executed in 3.911987 s
+
+2024-05-29
+Perkins, Blake: 1.652
+Fortes, Nick: 1.254
+Stallings, Jacob: 1.254
+Velázquez, Nelson: 1.245
+Gonzales, Nick: 1.025
+Clement, Ernie: 1.002
+Yelich, Christian: 0.977
+Vierling, Matt: 0.977
+Pages, Andy: 0.953
+Schwarber, Kyle: 0.936
+McCutchen, Andrew: 0.913
+SwingHedge executed in 8.120522 s
+
+2024-05-30
+O'Hoppe, Logan: 1.025
+Melendez, MJ: 1.025
+Sabol, Blake: 0.883
+Bleday, JJ: 0.882
+Wilson, Jacob: 0.882
+Garcia, Maikel: 0.818
+Young, Jacob: 0.801
+Pasquantino, Vinnie: 0.683
+Rengifo, Luis: 0.678
+Chourio, Jackson: 0.671
+Jansen, Danny: 0.668
+SwingHedge executed in 1.576395 s
 

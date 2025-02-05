@@ -107,18 +107,20 @@ def generate_wobas():
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-08-31"):
-        print("Testing " + day)
+    while(day != "2024-05-31"):
+        print("Running " + day)
         full_command = command + day + output
         subprocess.run(full_command, shell=True)
         day = get_next_day(day)
     end_time = time.time()
+    execution_time(start_time, end_time)
+
+def execution_time(start_time, end_time):
     execution_time = end_time - start_time
     hours = execution_time // 3600
     minutes = (execution_time % 3600) // 60
     seconds = execution_time % 60
-    print(f"Test execution time: {int(hours)} hours {int(minutes)} minutes {seconds:.2f} seconds")
-
+    print(f"Total program execution time: {int(hours)} hours {int(minutes)} minutes {seconds:.2f} seconds")
     
 
 def get_next_day(day):
@@ -137,13 +139,9 @@ def get_next_day(day):
         ymd[2] = f"{d_int:02d}"
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
 
-# def get_games(day):
-#     data = batting_stats_bref(2024)
-#     longoria = data[data['Name'] == 'Isiah Kiner-Falefa']
-#     print(longoria)
-    
     
 def generate_data():
+    start_time = time.time()
     count = 0
     hits = 0
     year = ''
@@ -160,19 +158,23 @@ def generate_data():
                     dateSplit = line.split('-')
                     year = dateSplit[0]
                     hitting_data = batting_stats_bref(int(year))
-                #print("results for %s" % (line))
                 currentDate = line.strip()
+                print(f"Testing {currentDate}")
             elif ',' in line:
                 playerStat = line.split(': ')
                 reversedName = playerStat[0]
                 playerName = reverseName(reversedName)
                 playerNumbers = hitting_data[hitting_data['Name'] == playerName]                
                 teamsFrame = playerNumbers['Tm'].str.split(',', expand=True)
-                teams = teamsFrame.values.tolist()[0];
+                if(not teamsFrame.empty):
+                    teams = teamsFrame.values.tolist()[0];
+                else:
+                    continue
                 leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
                 leagues = leaguesFrame.values.tolist()[0];
                 boxscores = getBoxscore(teams, leagues, currentDate)
-                playerId = statsapi.lookup_player(playerName)[0]['id']
+                if(statsapi.lookup_player(playerName)):
+                    playerId = statsapi.lookup_player(playerName)[0]['id']
                 playerIdString = 'ID' + str(playerId)
                 if(boxscores):
                     for boxscore in boxscores:
@@ -187,7 +189,9 @@ def generate_data():
                                 count+=1
                                 if(currBoxscore[playerIdString]['stats']['batting']['hits'] > 0):
                                     hits+=1
-    print(f"Success Rate: {hits}/{count} = {hits/count*100}%")
+    end_time = time.time()
+    execution_time(start_time, end_time)
+    print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
 
 
             
@@ -203,18 +207,22 @@ def getBoxscore(teams, leagues, date):
     for team in teams:
         if(team not in multiLeagueTeams):
             teamName = teamCodes.get(team)
-            schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
-            if(len(schedule) == 0):
+            if teamName:
+                schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
+                if(schedule):
+                    gameId = schedule[0]['game_id']
+                    boxscores.append(statsapi.boxscore_data(gameId))
+            else:
                 continue
-            gameId = schedule[0]['game_id']
-            boxscores.append(statsapi.boxscore_data(gameId))
         else:
             teamName = getDoubleTeamName(team, teams, leagues)
-            schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
-            if(len(schedule) == 0):
+            if teamName:
+                schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
+                if(schedule):
+                    gameId = schedule[0]['game_id']
+                    boxscores.append(statsapi.boxscore_data(gameId))
+            else:
                 continue
-            gameId = schedule[0]['game_id']
-            boxscores.append(statsapi.boxscore_data(gameId))
     return boxscores
 
 def getDoubleTeamName(team, teams, leagues):
