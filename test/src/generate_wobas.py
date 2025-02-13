@@ -85,7 +85,7 @@ def generate_wobas():
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-05-31"):
+    while(day != "2024-08-31"):
         print("Running " + day)
         full_command = command + day + output
         try:
@@ -120,7 +120,26 @@ def get_next_day(day):
         ymd[2] = f"{d_int:02d}"
     return ymd[0] + "-" + ymd[1] + "-" + ymd[2]
 
-    
+def collect_data():
+    data = {}
+    currentDate = ""
+    try:
+        with open('../bin/output.txt', 'r') as file:
+            while True:
+                line = file.readline()
+                if not line:
+                    break
+                pattern = r"^\d{4}-\d{2}-\d{2}$"
+                if re.match(pattern, line): # date
+                    currentDate = line.strip()
+                    data[currentDate] = []
+                elif ',' in line:
+                    data[currentDate].append(line.strip())
+        print(data)
+    except FileNotFoundError as e:
+        print(f"Line : SwingHedge output file not found. {e} Exiting.")
+        sys.exit()
+
 def generate_data():
     start_time = time.time()
     year = ''
