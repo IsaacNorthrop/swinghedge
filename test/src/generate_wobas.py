@@ -135,10 +135,22 @@ def collect_data():
                     data[currentDate] = []
                 elif ',' in line:
                     data[currentDate].append(line.strip())
-        print(data)
+        generate_data(data)
     except FileNotFoundError as e:
         print(f"Line : SwingHedge output file not found. {e} Exiting.")
         sys.exit()
+
+def generate_data(data):
+    start_time = time.time()
+    for date, players in data.items():
+        for player in players:
+            playerStat = player.split(': ')
+            playerName = reverseName(playerStat[0])
+            stat = playerStat[1]
+            print(f"{playerName}: {stat}")
+
+
+'''
 
 def generate_data():
     start_time = time.time()
@@ -183,6 +195,8 @@ def generate_data():
     except FileNotFoundError as e:
         print(f"Line : SwingHedge output file not found. {e} Exiting.")
         sys.exit()
+
+'''
 
 def processBoxscores(boxscores, playerIdString, teams):
     for boxscore in boxscores:
