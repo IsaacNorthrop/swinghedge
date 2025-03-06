@@ -142,63 +142,38 @@ def collect_data():
 
 def generate_data(data):
     start_time = time.time()
+    currentYear = ''
+    hittingData = ''
     for date, players in data.items():
+        year = date.split('-')[0]
+        if(currentYear == '' or currentYear != year):
+            currentYear = year
+            hittingData = batting_stats_bref(int(year))
         for player in players:
             playerStat = player.split(': ')
             playerName = reverseName(playerStat[0])
             stat = playerStat[1]
-            print(f"{playerName}: {stat}")
-
-
-'''
-
-def generate_data():
-    start_time = time.time()
-    year = ''
-    hitting_data = ''
-    currentDate = ''
-    try:
-        with open('../bin/output.txt', 'r') as file:
-            while True:
-                line = file.readline()
-                if not line:
-                    break
-                pattern = r"^\d{4}-\d{2}-\d{2}$"
-                if re.match(pattern, line): # date
-                    if year == '':
-                        dateSplit = line.split('-')
-                        year = dateSplit[0]
-                        hitting_data = batting_stats_bref(int(year))
-                    currentDate = line.strip()
-                    print(f"Testing {currentDate}")
-                elif ',' in line:
-                    playerStat = line.split(': ')
-                    reversedName = playerStat[0]
-                    playerName = reverseName(reversedName)
-                    playerNumbers = hitting_data[hitting_data['Name'] == playerName]                
-                    teamsFrame = playerNumbers['Tm'].str.split(',', expand=True)
-                    if(not teamsFrame.empty):
-                        teams = teamsFrame.values.tolist()[0];
-                    else:
-                        continue
-                    leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
-                    leagues = leaguesFrame.values.tolist()[0];
-                    boxscores = getBoxscore(teams, leagues, currentDate)
-                    if(statsapi.lookup_player(playerName)):
-                        playerId = statsapi.lookup_player(playerName)[0]['id']
-                    playerIdString = 'ID' + str(playerId)
-                    if(boxscores):
-                        processBoxscores(boxscores, playerIdString, teams)
-        end_time = time.time()
-        execution_time(start_time, end_time)
-        print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
-    except FileNotFoundError as e:
-        print(f"Line : SwingHedge output file not found. {e} Exiting.")
-        sys.exit()
-
-'''
+            playerNumbers = hittingData[hittingData['Name'] == playerName]                
+            teamsFrame = playerNumbers['Tm'].str.split(',', expand=True)
+            if(not teamsFrame.empty):
+                teams = teamsFrame.values.tolist()[0];
+            else:
+                continue
+            leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
+            leagues = leaguesFrame.values.tolist()[0];
+            boxscores = getBoxscore(teams, leagues, date)
+            if(statsapi.lookup_player(playerName)):
+                playerId = statsapi.lookup_player(playerName)[0]['id']
+            playerIdString = 'ID' + str(playerId)
+            if(boxscores):
+                processBoxscores(boxscores, playerIdString, teams)
+    end_time = time.time()
+    execution_time(start_time, end_time)
+    print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
 
 def processBoxscores(boxscores, playerIdString, teams):
+    global count
+    global hits
     for boxscore in boxscores:
         currBoxscore = {}
         for team in teams: # this doesn't pick up some boxscores for some reason
