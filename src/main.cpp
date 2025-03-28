@@ -27,14 +27,14 @@
 
 using namespace std;
 auto start = chrono::steady_clock::now();
-vector<pair<string, float>> wobas;
+vector<playerData> wobas;
 mutex mtx;
 
 void data_thread(string uri)
 {
     request matchup = request(uri);
     matchup.make_request();
-    vector<pair<string, float>> data = get_data(matchup.response); // get batter data from matchup
+    vector<playerData> data = get_data(matchup.response); // get batter data from matchup
 
     mtx.lock();
     wobas.insert(wobas.end(), data.begin(), data.end()); // add matchup wobas to daily wobas
@@ -67,14 +67,15 @@ int main(int argc, char *argv[])
     for (auto &t : threads)
         t.join();
 
-    std::sort(wobas.begin(), wobas.end(), [](const std::pair<string, float> &a, const std::pair<string, float> &b)
-              { return a.second > b.second; }); // sort player wobas by woba
+    std::sort(wobas.begin(), wobas.end(), [](const playerData &a, const playerData &b)
+              { return a.woba > b.woba; }); // sort player wobas by woba
 
     std::cout << argv[1] << std::endl;
     for (int i = 0; i <= 10; i++)
     {
-        cout << wobas[i].first + ": ";
-        cout << wobas[i].second << endl;
+        cout << wobas[i].player_name + ": ";
+        cout << wobas[i].woba;
+        cout << " over " + std::to_string(wobas[i].pa) + " PA" << endl;
     }
 
     auto end = chrono::steady_clock::now();

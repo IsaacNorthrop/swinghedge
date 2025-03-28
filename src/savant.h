@@ -9,15 +9,24 @@
 #include <myhtml/api.h>
 #include <nlohmann/json.hpp>
 
+/**
+ * @brief Struct to contain player name, wOBA, and plate appearances.
+ */
+
+struct playerData {
+    std::string player_name;
+    float woba;
+    int pa;
+};
 
 /**
  * @brief find the javascript variable in HTML response and sort it into usable json.
  * 
  * @param response - HTML response for a given pitcher-batter matchup
- * @return * std::vector<std::pair<std::string, float>> - {player_name, woba}
+ * @return * std::vector<playerData> - {player_name, woba, pa}
  */
 
-std::vector<std::pair<std::string, float>> get_data(std::string response);
+std::vector<playerData> get_data(std::string response);
 
 /**
  * @brief turn date argument into usable daily matchup link.

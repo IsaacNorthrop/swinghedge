@@ -21,9 +21,9 @@
 
 using json = nlohmann::json;
 
-std::vector<std::pair<std::string, float>> get_data(std::string response)
+std::vector<playerData> get_data(std::string response)
 {
-    std::vector<std::pair<std::string, float>> wobas;
+    std::vector<playerData> wobas;
     if (response.empty())
         std::cerr << "Invalid Reponse: player_data.cpp:15." << std::endl;
     
@@ -43,13 +43,17 @@ std::vector<std::pair<std::string, float>> get_data(std::string response)
     {
         std::string player_name;
         float woba = 0;
+        int pa = 0;
         if (players.contains("player_name"))
             player_name = players["player_name"];
         else
             player_name = "";
         if (players.contains("woba") && players["woba"].is_number())
             woba = players["woba"];
-        wobas.push_back({player_name, woba}); // add a pair including player_name and woba
+        if(players.contains("pa") && players["pa"].is_number())
+            pa = players["pa"];
+        playerData currData = {player_name, woba, pa};
+        wobas.push_back(currData); // add a pair including player_name and woba and pa
     }
 
     return wobas;
