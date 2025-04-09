@@ -90,7 +90,7 @@ def generate_wobas():
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-04-02"):
+    while(day != "2024-04-10"):
         print("Running " + day)
         full_command = command + day + output
         try:
@@ -127,6 +127,7 @@ def get_next_day(day):
 
 def collect_data():
     data = {}
+    threads = []
     currentDate = ""
     print("Beginning tests.")
     try:
@@ -148,14 +149,20 @@ def collect_data():
 
 def generate_data(data):
     start_time = time.time()
-    currentYear = ''
-    hittingData = ''
+    hittingData = batting_stats_bref(int(list(data.keys())[0].split('-')[0])) # get year from data and get hitting data
+    threads = []
     for date, players in data.items():
+        t = threading.Thread(target=dataThread, args=(date, players, hittingData))
+        threads.append(t)
+        t.start()
+    for thread in threads:
+        thread.join()
+    end_time = time.time()
+    execution_time(start_time, end_time)
+    print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
+
+def dataThread(date, players, hittingData):
         print(f"Testing {date}")
-        year = date.split('-')[0]
-        if(currentYear == '' or currentYear != year):
-            currentYear = year
-            hittingData = batting_stats_bref(int(year))
         for player in players:
             playerStat = player.split(': ')
             playerName = reverseName(playerStat[0])
@@ -174,12 +181,36 @@ def generate_data(data):
             playerIdString = 'ID' + str(playerId)
             if(boxscores):
                 processBoxscores(boxscores, playerIdString, teams)
-    end_time = time.time()
-    execution_time(start_time, end_time)
-    print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
 
-#def dataThread():
-    
+# def generate_data(data):
+#     start_time = time.time()
+#     hittingData = ''
+#     print(data)
+#     for date, players in data.items():
+#         print(f"Testing {date}")
+#         year = date.split('-')[0]
+#         hittingData = batting_stats_bref(int(year))
+#         for player in players:
+#             playerStat = player.split(': ')
+#             playerName = reverseName(playerStat[0])
+#             stat = playerStat[1]
+#             playerNumbers = hittingData[hittingData['Name'] == playerName]                
+#             teamsFrame = playerNumbers['Tm'].str.split(',', expand=True)
+#             if(not teamsFrame.empty):
+#                 teams = teamsFrame.values.tolist()[0];
+#             else:
+#                 continue
+#             leaguesFrame = playerNumbers['Lev'].str.split(',', expand=True)
+#             leagues = leaguesFrame.values.tolist()[0];
+#             boxscores = getBoxscore(teams, leagues, date)
+#             if(statsapi.lookup_player(playerName)):
+#                 playerId = statsapi.lookup_player(playerName)[0]['id']
+#             playerIdString = 'ID' + str(playerId)
+#             if(boxscores):
+#                 processBoxscores(boxscores, playerIdString, teams)
+#     end_time = time.time()
+#     execution_time(start_time, end_time)
+#     print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
 
 def processBoxscores(boxscores, playerIdString, teams):
     global count
@@ -192,9 +223,11 @@ def processBoxscores(boxscores, playerIdString, teams):
             elif(teamCodes.get(team) == boxscore['home']['team']['id']):
                 currBoxscore = boxscore['home']['players']
             if(playerIdString in currBoxscore and 'hits' in currBoxscore[playerIdString]['stats']['batting']): # clean
-                count+=1
+                with countLock:
+                    count+=1
                 if(currBoxscore[playerIdString]['stats']['batting']['hits'] > 0):
-                    hits+=1
+                    with hitsLock:
+                        hits+=1
             
 def reverseName(name):
     splitName = name.split(', ')

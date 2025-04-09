@@ -5,10 +5,122 @@ Contreras, Willson: 1.025 over 2 PA
 Jung, Josh: 0.977 over 3 PA
 Donovan, Brendan: 0.942 over 3 PA
 Soto, Juan: 0.941 over 5 PA
-Fitzgerald, Tyler: 0.882 over 2 PA
-Duran, Jarren: 0.882 over 3 PA
 DeJong, Paul: 0.882 over 2 PA
 Dubón, Mauricio: 0.882 over 1 PA
 Rodgers, Brendan: 0.882 over 1 PA
-SwingHedge executed in 7.839801 s
+Fitzgerald, Tyler: 0.882 over 2 PA
+Duran, Jarren: 0.882 over 3 PA
+SwingHedge executed in 7.758173 s
+
+2024-04-02
+Jung, Josh: 1.406 over 2 PA
+Harper, Bryce: 1.366 over 3 PA
+Turang, Brice: 1.068 over 2 PA
+Sosa, Edmundo: 1.063 over 2 PA
+Naylor, Bo: 0.977 over 3 PA
+Soler, Jorge: 0.899 over 3 PA
+Anderson, Tim: 0.883 over 2 PA
+Grichuk, Randal: 0.866 over 6 PA
+Hoskins, Rhys: 0.801 over 2 PA
+Dunn, Oliver: 0.785 over 2 PA
+Duran, Jarren: 0.774 over 3 PA
+SwingHedge executed in 7.764933 s
+
+2024-04-03
+Ward, Taylor: 1.068 over 2 PA
+Rojas, Miguel: 1.025 over 2 PA
+Sánchez, Gary: 1.025 over 2 PA
+Duran, Jarren: 0.986 over 6 PA
+Tucker, Kyle: 0.953 over 4 PA
+Rice, Ben: 0.888 over 3 PA
+Harris II, Michael: 0.884 over 2 PA
+Arraez, Luis: 0.883 over 1 PA
+Frelick, Sal: 0.882 over 2 PA
+Mullins, Cedric: 0.882 over 4 PA
+Morel, Christopher: 0.824 over 3 PA
+SwingHedge executed in 3.682704 s
+
+2024-04-04
+Canha, Mark: 0.977 over 3 PA
+Pham, Tommy: 0.92 over 3 PA
+Frazier, Adam: 0.872 over 6 PA
+Keith, Colt: 0.785 over 2 PA
+Abrams, CJ: 0.733 over 4 PA
+Witt Jr., Bobby: 0.712 over 3 PA
+McKinstry, Zach: 0.696 over 1 PA
+Nimmo, Brandon: 0.689 over 3 PA
+Reynolds, Bryan: 0.654 over 12 PA
+Arenado, Nolan: 0.652 over 5 PA
+Melendez, MJ: 0.627 over 2 PA
+SwingHedge executed in 3.540137 s
+
+2024-04-05
+Allen, Nick: 1.35 over 2 PA
+Cruz, Oneil: 1.271 over 3 PA
+O'Hearn, Ryan: 1.213 over 3 PA
+Clement, Ernie: 1.068 over 2 PA
+Suárez, Eugenio: 1.068 over 2 PA
+Gonzalez, Romy: 1.002 over 2 PA
+Burger, Jake: 0.942 over 4 PA
+Olson, Matt: 0.923 over 3 PA
+Casas, Triston: 0.91 over 7 PA
+Gurriel, Yuli: 0.883 over 1 PA
+Huff, Sam: 0.883 over 1 PA
+SwingHedge executed in 16.299885 s
+
+2024-04-06
+Soto, Juan: 2.05 over 1 PA
+Bart, Joey: 1.652 over 2 PA
+d'Arnaud, Travis: 1.478 over 2 PA
+Vázquez, Christian: 1.232 over 1 PA
+Edman, Tommy: 1.025 over 2 PA
+Toglia, Michael: 1.025 over 2 PA
+Smith, Will: 1.025 over 2 PA
+Muncy, Max: 0.998 over 4 PA
+Walker, Jordan: 0.972 over 2 PA
+Crews, Dylan: 0.972 over 2 PA
+Ohtani, Shohei: 0.897 over 6 PA
+SwingHedge executed in 7.751577 s
+
+2024-04-07
+Gonzalez, Romy: 2.004 over 1 PA
+Contreras, William: 1.271 over 3 PA
+Jung, Josh: 1.207 over 4 PA
+Hamilton, David: 1.025 over 2 PA
+Lindor, Francisco: 0.976 over 5 PA
+Bader, Harrison: 0.913 over 4 PA
+Devers, Rafael: 0.913 over 3 PA
+Dunn, Oliver: 0.824 over 3 PA
+Edman, Tommy: 0.82 over 5 PA
+Turang, Brice: 0.785 over 2 PA
+Moreno, Gabriel: 0.753 over 3 PA
+SwingHedge executed in 1.744468 s
+
+2024-04-08
+Valdez, Enmanuel: 1.785 over 3 PA
+Benson, Will: 1.652 over 2 PA
+Cronenworth, Jake: 1.145 over 4 PA
+Sosa, Edmundo: 1.025 over 2 PA
+Fairchild, Stuart: 1.002 over 2 PA
+Sheets, Gavin: 1.002 over 2 PA
+Conforto, Michael: 1.002 over 2 PA
+Volpe, Anthony: 0.949 over 5 PA
+Lee, Jung Hoo: 0.942 over 3 PA
+Vientos, Mark: 0.939 over 5 PA
+McCarthy, Jake: 0.883 over 2 PA
+SwingHedge executed in 3.680842 s
+
+2024-04-09
+Rice, Ben: 2.061 over 1 PA
+Montes, Coco: 1.003 over 3 PA
+Baker, Luken: 1.002 over 2 PA
+Smith, Will: 0.977 over 3 PA
+Canzone, Dominic: 0.913 over 3 PA
+Suzuki, Seiya: 0.882 over 3 PA
+Yastrzemski, Mike: 0.882 over 2 PA
+Call, Alex: 0.882 over 2 PA
+Witt Jr., Bobby: 0.862 over 6 PA
+Soderstrom, Tyler: 0.836 over 3 PA
+Marsh, Brandon: 0.834 over 4 PA
+SwingHedge executed in 3.751711 s
 
