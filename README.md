@@ -5,6 +5,7 @@ C++ Program that predicts batter pitcher matchups in MLB using Statcast data.
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Installation and Usage](#installation-and-usage)
+- [Testing](#testing)
 - [Versions](#versions)
 - [Contact](#contact)
 
@@ -32,7 +33,11 @@ This program sends a request to Baseball Savant, finds the link to each matchup,
 
 3.  Run the program for your specified date that has MLB games between 2015-2024.
     ```bash
-    ./bin/swinghegde <YYYY-MM-DD>
+    ./bin/swinghedge <YYYY-MM-DD>
+
+## Testing
+
+run test.py from test/src.
 
 ## Versions
 

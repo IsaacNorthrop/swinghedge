@@ -1,0 +1,12 @@
+Running 2024-04-01
+Total program execution time: 0 hours 0 minutes 7.85 seconds
+Beginning tests.
+Testing 2024-04-01
+['Los Angeles']
+['Los Angeles Angels']
+['New York']
+['New York Yankees']
+['Chicago', 'Kansas City']
+['Chicago White Sox', 'Kansas City']
+Total program execution time: 0 hours 0 minutes 23.81 seconds
+Test success Rate: 6/10 = 60.0%

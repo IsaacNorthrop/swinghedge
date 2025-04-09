@@ -4,7 +4,7 @@ import statsapi
 from pybaseball import batting_stats_bref
 import re
 import sys
-
+import threading
 ### UPDATE ERROR LINE NUMBERS
 
 teamCodes = {
@@ -22,7 +22,7 @@ teamCodes = {
     "Kansas City": 118,
     "Los Angeles Angels": 108,
     "Los Angeles Dodgers": 119,
-    "Miami": 120,
+    "Miami": 146,
     "Milwaukee": 158,
     "Minnesota": 142,
     "New York Mets": 121,
@@ -37,6 +37,7 @@ teamCodes = {
     "Tampa Bay": 139,
     "Texas": 140,
     "Toronto": 141,
+    "Washington": 120
 }
 
 teamLeague = {
@@ -68,11 +69,15 @@ teamLeague = {
     "St. Louis": "NL",
     "Tampa Bay": "AL",
     "Texas": "AL",
-    "Toronto": "AL"
+    "Toronto": "AL",
+    "Washington": "NL"
 }
 
 count = 0
 hits = 0
+
+countLock = threading.Lock()
+hitsLock = threading.Lock()
 
 
 def generate_wobas():
@@ -85,7 +90,7 @@ def generate_wobas():
     command = "cd ../../bin && ./swinghedge "
     output = " >> ../test/bin/output.txt"
     day = "2024-04-01"
-    while(day != "2024-08-31"):
+    while(day != "2024-04-02"):
         print("Running " + day)
         full_command = command + day + output
         try:
@@ -123,6 +128,7 @@ def get_next_day(day):
 def collect_data():
     data = {}
     currentDate = ""
+    print("Beginning tests.")
     try:
         with open('../bin/output.txt', 'r') as file:
             while True:
@@ -145,6 +151,7 @@ def generate_data(data):
     currentYear = ''
     hittingData = ''
     for date, players in data.items():
+        print(f"Testing {date}")
         year = date.split('-')[0]
         if(currentYear == '' or currentYear != year):
             currentYear = year
@@ -170,6 +177,9 @@ def generate_data(data):
     end_time = time.time()
     execution_time(start_time, end_time)
     print(f"Test success Rate: {hits}/{count} = {hits/count*100}%")
+
+#def dataThread():
+    
 
 def processBoxscores(boxscores, playerIdString, teams):
     global count
@@ -206,8 +216,10 @@ def getBoxscore(teams, leagues, date):
             else:
                 continue
         else:
+            print(teams)
             teamName = getDoubleTeamName(team, teams, leagues)
             if teamName:
+                teams[teams.index(team)] = next((k for k, v in teamCodes.items() if v == teamName), None)
                 schedule = statsapi.schedule(date=date, team=teamName, sportId=1)
                 if(schedule):
                     gameId = schedule[0]['game_id']
