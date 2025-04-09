@@ -1,14 +1,14 @@
 2024-04-01
 Frazier, Adam: 2.004 over 1 PA
-Contreras, Willson: 1.025 over 2 PA
 Trout, Mike: 1.025 over 2 PA
+Contreras, Willson: 1.025 over 2 PA
 Jung, Josh: 0.977 over 3 PA
 Donovan, Brendan: 0.942 over 3 PA
 Soto, Juan: 0.941 over 5 PA
-Rodgers, Brendan: 0.882 over 1 PA
 Fitzgerald, Tyler: 0.882 over 2 PA
-DeJong, Paul: 0.882 over 2 PA
 Duran, Jarren: 0.882 over 3 PA
+DeJong, Paul: 0.882 over 2 PA
 Dubón, Mauricio: 0.882 over 1 PA
-SwingHedge executed in 7.808464 s
+Rodgers, Brendan: 0.882 over 1 PA
+SwingHedge executed in 7.839801 s
 

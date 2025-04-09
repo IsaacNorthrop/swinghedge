@@ -216,7 +216,6 @@ def getBoxscore(teams, leagues, date):
             else:
                 continue
         else:
-            print(teams)
             teamName = getDoubleTeamName(team, teams, leagues)
             if teamName:
                 teams[teams.index(team)] = next((k for k, v in teamCodes.items() if v == teamName), None)
